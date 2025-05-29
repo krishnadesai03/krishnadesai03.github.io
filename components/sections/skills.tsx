@@ -295,7 +295,7 @@ export  function SkillSection() {
                         animate={{ opacity: 1, rotate: 0 }}
                         transition={{ delay: 0.5, duration: 0.5 }}
                       >
-                        <img src={`/placeholder.svg?height=48&width=48`} alt={skill.name} className="w-12 h-12" />
+                        <img src={skill.icon} alt={skill.name} className="w-12 h-12" />
                       </motion.div>
                       <motion.h3
                         className="text-2xl font-semibold text-white mb-2"

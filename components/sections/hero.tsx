@@ -58,9 +58,9 @@ export function HeroSection() {
             transition={{ delay: 0.4, duration: 0.5 }}
             className="flex justify-center space-x-4"
           >
-            <Link href={"/#projects"}>
+            <Link href={"/#blogs"}>
             <Button  size="lg" className="group">
-              View Projects
+              View Related Work
               <ChevronDown className="ml-2 h-4 w-4 transition-transform group-hover:translate-y-1" />
             </Button>
            </Link>
