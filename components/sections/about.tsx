@@ -8,19 +8,24 @@ import { FaDownload, FaGithub, FaLinkedin, FaEnvelope } from 'react-icons/fa'
 import Image from "next/image"
 
 const skills = [
-  "React/Next.js",
-  "TypeScript",
-  "Node.js",
-  "Tailwind CSS",
-  "Framer Motion",
-  "UI/UX Design",
+  "Machine Learning ",
+  "Python",
+  "Deep Learning",
+  "Pytorch",
+  "Data Visualization",
+  "Data Analysis",
+  "Natural Language Processing",
+  "Computer Vision",
+  "SQL",
 ]
 
 const interests = [
-  { icon: "🚀", label: "Space Exploration" },
-  { icon: "🎮", label: "Gaming" },
+  { icon: "🤎☕", label: "Coffee" },
+  { icon: "📖", label: "Learning" },
+  { icon: "⛰️", label: "Travel" },
+  { icon: "💃🏻", label: "Dance" },
   { icon: "📚", label: "Reading" },
-  { icon: "🎨", label: "Digital Art" },
+  { icon: "🎨", label: "Art" },
 ]
 
 const floatingAnimation = {
@@ -40,7 +45,7 @@ export function AboutSection() {
   const [showBio, setShowBio] = useState(false)
 
   return (
-    <section id="about" className="py-24 bg-gradient-to-br from-background to-secondary/30 overflow-hidden">
+    <section id="about" className="py-24 bg-gradient-to-br from-background to-secondary/5 overflow-hidden">
       <div className="container px-4 mx-auto relative">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -59,14 +64,15 @@ export function AboutSection() {
               className="relative aspect-square rounded-2xl overflow-hidden"
             >
               <Image
-                src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=1288&auto=format&fit=crop"
+                src="/Portfolio1.png"  
                 alt="Profile"
                 fill
                 className="object-cover"
                 priority
               />
               <motion.div 
-                className="absolute inset-0 bg-gradient-to-t from-primary/80 to-transparent"
+                className="absolute bg-gradient-to-t from-transparent to-transparent"
+                
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 1 }}
@@ -90,7 +96,7 @@ export function AboutSection() {
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.2 }}
             >
-              <h2 className="text-4xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary">About Me</h2>
+              <h2 className="text-4xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary">Data Scientist with a Creative Pulse. </h2>
               <AnimatePresence mode="wait">
                 {showBio ? (
                   <motion.p
@@ -101,10 +107,14 @@ export function AboutSection() {
                     transition={{ duration: 0.3 }}
                     className="text-muted-foreground"
                   >
-                    I'm a passionate developer focused on creating beautiful and functional web experiences. 
-                    With expertise in modern web technologies, I bring ideas to life through clean code and 
-                    thoughtful design. My journey in tech started with a fascination for problem-solving and 
-                    has evolved into a career dedicated to crafting intuitive digital solutions.
+                    I’m Himani Gulati, a Data Science Master’s student at IU’s Luddy School, 
+                    fueled by a passion for turning data into stories that inspire action. 
+                    In a world powered by AI, I bring the human touch—blending analytics with 
+                    creativity to solve real problems. My journey spans leading data science workshops, 
+                    crafting impactful campaigns for an NGO, and the never-ending learning path of diving deeper
+                    into what everyone likes to call BLACK BOXES.
+                    I’m driven by curiosity and a desire to take on challenges that push the boundaries of what’s possible.
+  
                   </motion.p>
                 ) : (
                   <motion.p
@@ -115,7 +125,7 @@ export function AboutSection() {
                     transition={{ duration: 0.3 }}
                     className="text-muted-foreground"
                   >
-                    I'm a passionate developer focused on creating beautiful and functional web experiences...
+                    In a world ruled by AI, I bring to the table what AI can’t! What makes me human!  
                   </motion.p>
                 )}
               </AnimatePresence>
@@ -230,9 +240,9 @@ export function AboutSection() {
 
         {/* Glowing orbs */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full max-w-4xl max-h-4xl opacity-30 pointer-events-none">
-          <div className="absolute top-0 left-0 w-72 h-72 bg-primary rounded-full mix-blend-multiply filter blur-xl animate-blob" />
-          <div className="absolute top-0 right-0 w-72 h-72 bg-secondary rounded-full mix-blend-multiply filter blur-xl animate-blob animation-delay-2000" />
-          <div className="absolute bottom-0 left-1/2 w-72 h-72 bg-accent rounded-full mix-blend-multiply filter blur-xl animate-blob animation-delay-4000" />
+          <div className="absolute top-0 left-0 w-2 h-2 bg-primary rounded-full mix-blend-multiply filter blur-xl animate-blob" />
+          <div className="absolute top-0 right-0 w-2 h-2 bg-secondary rounded-full mix-blend-multiply filter blur-xl animate-blob animation-delay-2000" />
+          <div className="absolute bottom-0 left-1/2 w-2 h-2 bg-accent rounded-full mix-blend-multiply filter blur-xl animate-blob animation-delay-4000" />
         </div>
       </div>
     </section>

@@ -25,13 +25,13 @@ const youtubevideos: Video[] = [
     id: 2,
     color: "from-green-500 to-yellow-500",
     textColor: "text-green-100",
-    youtubeUrl: "https://www.youtube.com/embed/2buP9--GHIU"
+    youtubeUrl: "https://www.youtube.com/embed/l6-B3bzQzb0?si=B7TqgJ4gsO6_HU-V" 
   },
   {
     id: 3,
     color: "from-red-500 to-pink-600",
     textColor: "text-red-100",
-    youtubeUrl: "https://www.youtube.com/embed/2buP9--GHIU"
+    youtubeUrl: "https://www.youtube.com/embed/e8reyuOa2Ug?si=3Q39ldqCjdvNDjLe"
   }
 ]
 

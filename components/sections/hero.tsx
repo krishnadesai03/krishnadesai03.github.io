@@ -15,10 +15,10 @@ export function HeroSection() {
       className="relative min-h-screen flex items-center justify-center overflow-hidden"
     >
       {/* Animated background */}
-      <div className="absolute inset-0 z-0">
+      {/* <div className="absolute inset-0 z-0">
         <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-secondary/20 animate-gradient" />
         <div className="absolute inset-0 bg-grid-white/[0.02] bg-grid-pattern" />
-      </div>
+      </div> */}
 
       <div className="container mx-auto px-4 z-10">
         <div className="text-center">
@@ -28,26 +28,26 @@ export function HeroSection() {
             transition={{ duration: 0.5 }}
             className="text-4xl md:text-6xl font-bold mb-6"
           >
-            Creative Developer
+            Hi✨, I'm Himani
           </motion.h1>
 
           <motion.div
             initial={{ y: 20, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
-            transition={{ delay: 0.2, duration: 0.5 }}
+            transition={{ delay: 0.2, duration: 1.5 }}
             className="text-xl md:text-2xl text-muted-foreground mb-8 h-[60px]"
           >
             <TypeAnimation
               sequence={[
-                "Building beautiful web experiences",
+                "Data Science Student",
                 1000,
-                "Crafting intuitive interfaces",
+                "I Craft Engaging and Informative Content",
                 1000,
-                "Creating engaging animations",
+                "I Write! Captivating, Humour Endulged and Insightful articles",
                 1000,
               ]}
               wrapper="span"
-              speed={50}
+              speed={1}
               repeat={Infinity}
             />
           </motion.div>

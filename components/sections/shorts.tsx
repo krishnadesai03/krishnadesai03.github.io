@@ -24,11 +24,11 @@ const shorts: Short[] = [
   },
   {
     id: 2,
-    shortsUrl: "https://www.youtube.com/embed/xl7YrCyo14s"
+    shortsUrl: "https://www.youtube.com/embed/-frWnf-N83M"
   },
   {
     id: 3,
-    shortsUrl: "https://www.youtube.com/embed/xl7YrCyo14s"
+    shortsUrl: "https://www.youtube.com/embed/hSXe3416MZA"
   }
 ]
 

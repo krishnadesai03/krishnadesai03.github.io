@@ -41,10 +41,10 @@ export  function SkillSection() {
 
   const skills: Skill[] = [
     { 
-      name: "React", 
+      name: "Python", 
       level: 90, 
-      icon: "react-icon", 
-      description: "Building interactive UIs with React",
+      icon: "python-icon",
+      description: "Powerful programming language for data science and web development", 
       projects: ["E-commerce Platform", "Social Media Dashboard", "Portfolio Website"]
     },
     { 
@@ -137,7 +137,7 @@ export  function SkillSection() {
             transition={{ duration: 0.5 }}
             className="text-3xl md:text-5xl font-bold mb-6 text-primary"
           >
-            My Skills
+            Skills and Certificates
           </motion.h2>
           <motion.p
             initial={{ y: 20, opacity: 0 }}
@@ -145,7 +145,7 @@ export  function SkillSection() {
             transition={{ delay: 0.2, duration: 0.5 }}
             className="text-lg md:text-xl text-muted-foreground mb-8"
           >
-            Here's a collection of my skills with their proficiency levels.
+            View my Credentials...𓆝 𓆟 𓆞 𓆝 𓆟
           </motion.p>
           <Button 
             onClick={() => setShowLevel(!showLevel)} 

@@ -20,30 +20,30 @@ type Blog = {
 const blogs: Blog[] = [
   {
     id: 1,
-    title: "Blog #1",
-    description: "A short description for blog 1",
-    image: "https://tinyurl.com/226ofh39",
+    title: "Understanding the Gaussian Filter",
+    description: "Breaking down the BLURRRRR! A comprehensive guide to the Gaussian filter, and how it works.",
+    image: "/blog1b_image.png",
     color: "from-blue-500 to-purple-600",
     textColor: "text-blue-100",
     mediumUrl: "https://himani-gulati.medium.com/understanding-the-gaussian-filter-c2cb4fb4f16b"
   },
   {
     id: 2,
-    title: "Blog #2",
-    description: "A short description for blog 2",
-    image: "https://tinyurl.com/25ydsheu",
+    title: "Introduction to Diffusion Models",
+    description: "A theoretical understanding of Diffusion models for beginners.",
+    image: "/blog2_image.png",
     color: "from-green-500 to-yellow-500",
     textColor: "text-green-100",
-    mediumUrl: "https://himani-gulati.medium.com/understanding-the-gaussian-filter-c2cb4fb4f16b"
+    mediumUrl: "https://himani-gulati.medium.com/introduction-to-diffusion-models-b9c8f2f534fa"
   },
   {
     id: 3,
-    title: "Blog #3",
-    description: "A short description for blog 3",
-    image: "https://tinyurl.com/258xcbsc",
+    title: "Hyper-parameter Tuning in Decision Trees and Random Forests",
+    description: "A comprehensive guide to hyper-parameter tuning in Decision Trees and Random Forests.",
+    image: "/blog3_image.png",
     color: "from-red-500 to-pink-600",
     textColor: "text-red-100",
-    mediumUrl: "https://himani-gulati.medium.com/understanding-the-gaussian-filter-c2cb4fb4f16b"
+    mediumUrl: "https://medium.com/@himani-gulati/hyper-parameter-tuning-in-decision-trees-and-random-forests-3bdee09ea5af"
   }
 ];
 
