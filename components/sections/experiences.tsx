@@ -22,25 +22,25 @@ type Experience = {
 
 const experiences = [
   {
-    role: "Frontend Developer",
-    company: "Tech Solutions",
-    duration: "Jan 2022 - Present",
+    role: "Data Science Instructor",
+    company: "Jovian.ML",
+    duration: "June 2022 - Aug 2023",
     description: "Developing cutting-edge web applications using Next.js, React, and Tailwind CSS.",
-    technologies: ["React", "Next.js", "Tailwind CSS", "TypeScript"],
-    companyLogo: "/placeholder.svg?height=48&width=48",
+    technologies: ["Replace This"],
+    companyLogo: "/jovianlogo.png",
     color: "from-blue-400 to-blue-600",
   },
   {
-    role: "UI/UX Designer",
-    company: "Creative Agency",
-    duration: "Jun 2020 - Dec 2021",
+    role: "Associate Engineer",
+    company: "Symphony Talents",
+    duration: "April 2022 - June 2022",
     description: "Designing interactive and user-friendly interfaces for web and mobile apps.",
     technologies: ["Figma", "Adobe XD", "UI/UX Design"],
-    companyLogo: "/placeholder.svg?height=48&width=48",
+    companyLogo: "/symphonylogo.png",
     color: "from-purple-400 to-purple-600",
   },
   {
-    role: "Full Stack Developer",
+    role: "Assistant Instructor - Data Science Intern",
     company: "Web Innovators",
     duration: "Mar 2019 - May 2020",
     description: "Worked on both front-end and back-end development of an e-commerce platform using Node.js, Express, and React.",
@@ -102,7 +102,7 @@ export function ExperienceSection() {
           >
             <h2 className="text-4xl font-bold mb-4 text-white">Work Experience</h2>
             <p className="text-gray-300 max-w-2xl mx-auto">
-              A selection of my recent professional roles where I've grown my skills and worked on exciting projects.
+              Some Professional Experiences that I have gained over the years, that have helped me grow as a developer and designer.
             </p>
           </motion.div>
 
