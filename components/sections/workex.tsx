@@ -15,24 +15,48 @@ type WorkExperience = {
 const workExperienceData: WorkExperience[] = [
   {
     id: 1,
-    role: "Data Science Intern",
+    role: "Lead Data Science Instructor",
     company: "Jovian.ML",
-    duration: "Jun 2021 – Aug 2021",
+    duration: "Jun 2022 – Aug 2023",
     details: [
-      "Developed machine learning models for data analysis",
-      "Collaborated with team on predictive analytics projects",
-      "Implemented data pipelines using Python and SQL"
+      "Developed and documented a Python library for inculcating LLM in Python scripts using React hooks",
+      "Led Data Science Bootcamp cohorts as Instructor and Manager",
+      "Conducted 50+ live sessions on Python, Data Analysis, and Deep Learning",
+      "Revamped and created curriculums for the Data Science Bootcamp and technical content for social media",
+      "Created 50+ tutorials and short videos on YouTube on Python and Data Science (with 54K+ views)"
     ]
   },
   {
     id: 2,
+    role: "Associate Engineer Intern",
+    company: "Symphony Tallent",
+    duration: "April 2022 – June 2022",
+    details: [
+      "Set up Customer Relationship Management Database using MySQL",
+      "Implemented a CRM to ensure its effective utilization",
+      "Used WordPress to create websites(Job Portal) to ease user experience"
+    ]
+  },
+  {
+    id: 3,
+    role: "Assistant Instructor for Data Science Bootcamp",
+    company: "Jovian.ML",
+    duration: "Feb 2021 - Dec 2021",
+    details: [
+      "Resolved 1000+ queries based on Python, Data Analysis, and Deep Learning via 1:1 calls and forum threads",
+      "Evaluated and remarked on 1000+ course-based assignments and projects",
+      "Created repository and solution notebooks (knowledge base) for Data Science and Machine Learning Projects and course work"
+    ]
+  },
+  {
+    id: 4,
     role: "Research Assistant",
     company: "Indiana University Bloomington",
-    duration: "Sep 2023 – Present",
+    duration: "Starting Aug 2025",
     details: [
-      "Conducted research in Animal-Computer Interaction",
-      "Analyzed large datasets using Python and R",
-      "Presented findings at academic conferences"
+      "Conducting research in Animal-Computer Interaction with Deep Learning",
+      "Analyzing and preparing large datasets using Python",
+      "Collaborating with faculty with expertise in Animal-Computer Interaction",
     ]
   }
 ]

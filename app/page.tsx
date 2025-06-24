@@ -2,7 +2,7 @@ import { HeroSection } from "@/components/sections/hero"
 import { AboutSection } from "@/components/sections/about"
 import { SkillSection } from "@/components/sections/skills"
 import { CertificateSection  } from "@/components/sections/certification" 
-import { ExperienceSection } from "@/components/sections/experiences"
+// import { ExperienceSection } from "@/components/sections/experiences"
 import { ContactSection } from "@/components/sections/contact"
 import { BlogSection } from "@/components/sections/blog"
 import { TutorialSection } from "@/components/sections/tutorial"
@@ -20,9 +20,9 @@ export default function Home() {
       <BlogSection/>
       <TutorialSection/>
       <ShortsSection/>
+      <WorkExSection/>
+      <SkillSection />
       <CertificateSection/>
-      <ExperienceSection/>
-      /* <WorkExSection/> */
       <EducationSection/>
       <ContactSection/>
     </div>
