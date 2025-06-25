@@ -4,12 +4,15 @@ import { FaPython, FaDatabase, FaHtml5 } from "react-icons/fa";
 
 const skills = [
   { name: "Python", icon: <FaPython className="w-8 h-8 text-blue-600" /> },
-  { name: "Machine Learning", icon: <img src="https://img.icons8.com/color/32/000000/machine-learning.png" alt="Machine Learning" className="w-8 h-8" /> },
+  { name: "Machine Learning", icon: <img src="/coding.png" alt="Machine Learning" className="w-8 h-8" /> },
+  { name: "Deep Learning", icon: <img src="/deep-learning.png" alt="Deep Learning" className="w-8 h-8" /> },
+  { name: "Data Visualisation", icon: <img src="/data-visualization.png" alt="Data Visualisation" className="w-8 h-8" /> },
+  { name: "Data Cleansing", icon: <img src="/data-management.png" alt="Data Cleansing" className="w-8 h-8" /> },
   { name: "MySQL", icon: <FaDatabase className="w-8 h-8 text-blue-600" /> },
-  { name: "Computer Vision", icon: <img src="https://img.icons8.com/color/32/000000/image-recognition.png" alt="Computer Vision" className="w-8 h-8" /> },
-  { name: "Data Analysis", icon: <img src="https://img.icons8.com/color/32/000000/data-analysis.png" alt="Data Analysis" className="w-8 h-8" /> },
-  { name: "HTML", icon: <FaHtml5 className="w-8 h-8 text-orange-600" /> },
-  { name: "Power BI", icon: <img src="https://img.icons8.com/color/32/000000/power-bi.png" alt="Power BI" className="w-8 h-8" /> }
+  { name: "Computer Vision", icon: <img src="/computer.png" alt="Computer Vision" className="w-8 h-8" /> },
+  { name: "Data Analysis", icon: <img src="/analysis.png" alt="Data Analysis" className="w-8 h-8" /> },
+  { name: "HTML,CSS,Next.js", icon: <img src="/domain.png" alt="HTML,CSS,NextJs" className="w-8 h-8" /> },
+  { name: "Power BI", icon: <img src="/monitor.png" alt="Power BI" className="w-8 h-8" /> }
 ];
 
 export function SkillSection() {
@@ -24,7 +27,7 @@ export function SkillSection() {
           {skills.map((skill, index) => (
             <div
               key={skill.name}
-              className="relative overflow-hidden rounded-lg shadow-xl"
+              className="relative overflow-hidden rounded-lg shadow-xl hover:scale-110 hover:shadow-2xl transition-transform transition-shadow duration-300"
               style={{
                 background: `linear-gradient(135deg, hsl(${(index * 50) % 360}, 70%, 50%), hsl(${((index * 50 + 180) % 360)}, 70%, 50%))`,
               }}

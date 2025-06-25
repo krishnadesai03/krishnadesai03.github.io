@@ -64,7 +64,7 @@ export function AboutSection() {
               className="relative aspect-square rounded-2xl overflow-hidden"
             >
               <Image
-                src="/Portfolio1.png"  
+                src="/main.jpg"
                 alt="Profile"
                 fill
                 className="object-cover"
