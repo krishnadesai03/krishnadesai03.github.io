@@ -220,20 +220,37 @@ export function AboutSection() {
               transition={{ duration: 0.5, delay: 0.5 }}
               className="flex flex-wrap gap-4"
             >
-              <Button className="bg-gradient-to-r from-primary to-secondary hover:from-primary/80 hover:to-secondary/80 text-primary-foreground">
+              <a
+                href="https://drive.google.com/drive/folders/1gFhE5EGYPOBI6G_F5zl2-W5Dq8y-thCP?usp=sharing"
+                download
+                className="inline-flex items-center justify-center px-4 py-2 rounded-md bg-gradient-to-r from-primary to-secondary hover:from-primary/80 hover:to-secondary/80 text-primary-foreground"
+              >
                 <FaDownload className="mr-2 h-4 w-4" />
                 Download CV
-              </Button>
-              <Button variant="outline" className="border-primary text-primary hover:bg-primary hover:text-primary-foreground">
+              </a>
+              <a
+                href="mailto:hgmani007@gmail.com"
+                className="inline-flex items-center justify-center px-4 py-2 border border-primary text-primary hover:bg-primary hover:text-primary-foreground rounded-md"
+              >
                 <FaEnvelope className="mr-2 h-4 w-4" />
                 Contact Me
-              </Button>
-              <Button variant="ghost" size="icon" className="text-primary hover:bg-primary/20">
+              </a>
+              <a
+                href="https://github.com/himani007" // Replace with your actual GitHub profile
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center p-2 rounded-md text-primary hover:bg-primary/20"
+              >
                 <FaGithub className="h-5 w-5" />
-              </Button>
-              <Button variant="ghost" size="icon" className="text-primary hover:bg-primary/20">
+              </a>
+              <a
+                href="https://www.linkedin.com/in/himani-gulati-958b3119a/" // Replace with your LinkedIn URL
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center p-2 rounded-md text-primary hover:bg-primary/20"
+              >
                 <FaLinkedin className="h-5 w-5" />
-              </Button>
+              </a>
             </motion.div>
           </div>
         </motion.div>

@@ -13,8 +13,20 @@ type WorkExperience = {
 }
 
 const workExperienceData: WorkExperience[] = [
-  {
+    {
     id: 1,
+    role: "Research Assistant",
+    company: "Indiana University Bloomington",
+    duration: "Aug 2025 - Present",
+    details: [
+      "Conducting research in Animal-Computer Interaction with Deep Learning, MaxQDA, and Python",
+      "Analyzing and preparing large datasets of animal adoption records using data analysis techniques",
+      "Collaborating with faculty and peers to publish research findings in academic journals and conferences",
+      "Assisting in the development of machine learning models to predict animal behavior and adoption likelihood using NLP techniques"
+    ]
+  },
+  {
+    id: 2,
     role: "Lead Data Science Instructor",
     company: "Jovian.ML",
     duration: "Jun 2022 – Aug 2023",
@@ -27,7 +39,7 @@ const workExperienceData: WorkExperience[] = [
     ]
   },
   {
-    id: 2,
+    id: 3,
     role: "Associate Engineer Intern",
     company: "Symphony Tallent",
     duration: "April 2022 – June 2022",
@@ -38,7 +50,7 @@ const workExperienceData: WorkExperience[] = [
     ]
   },
   {
-    id: 3,
+    id: 4,
     role: "Assistant Instructor for Data Science Bootcamp",
     company: "Jovian.ML",
     duration: "Feb 2021 - Dec 2021",
@@ -49,14 +61,14 @@ const workExperienceData: WorkExperience[] = [
     ]
   },
   {
-    id: 4,
-    role: "Research Assistant",
-    company: "Indiana University Bloomington",
-    duration: "Starting Aug 2025",
+    id: 5,
+    role: "Campaign Manager : Social Media and Marketing",
+    company: "SCREAM (Non-Profit Organization)",
+    duration: "Feb 2021 - Dec 2021",
     details: [
-      "Conducting research in Animal-Computer Interaction with Deep Learning",
-      "Analyzing and preparing large datasets using Python",
-      "Collaborating with faculty with expertise in Animal-Computer Interaction",
+      "Managed end-to-end digital marketing campaigns, guiding creative teams and writing compelling copy for social feeds and donor outreach.",
+      "Spearheaded social media strategy across all platforms, implementing performance analytics to track key metrics and increase audience engagement",
+      "Analyzed content performance data to derive actionable insights, optimizing strategies to boost visibility and support fundraising objectives."
     ]
   }
 ]

@@ -12,9 +12,9 @@ import { useTheme } from "next-themes"
 const navItems = [
   { name: "Home", path: "/" },
   { name: "About", path: "/#about" },
-  { name: "Work", path: "/#blogs" },
+  { name: "Blog", path: "/#blogs" },
   { name: "Skills", path: "/#skills" },
-  { name: "Experience", path: "/#experiences" },
+  { name: "Experience", path: "/#work-experience" },
   { name: "Contact", path: "/#contact" },
 ]
 

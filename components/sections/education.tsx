@@ -19,9 +19,9 @@ const educationData: Education[] = [
     school: "Indiana University Bloomington",
     duration: "Aug 2023 – May 2025",
     details: [
-      "Relevant Courses: Cloud Computing, Computer Vision, AI & Machine Learning",
-      "Currently Working on research project in Animal-Computer Interaction",
-      "GPA: 3.7 / 4.0"
+      "Relevant Courses: Computer Vision, Applied Machine Learning, Statistics for Data Science, Cloud Computing, Applied DataBase Technologies",
+      "Currently Working on research projects based on Animal-Computer Interaction",
+      "GPA: 3.8 / 4.0"
     ]
   },
   {

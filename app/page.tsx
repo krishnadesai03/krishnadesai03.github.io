@@ -8,7 +8,8 @@ import { BlogSection } from "@/components/sections/blog"
 import { TutorialSection } from "@/components/sections/tutorial"
 import { ShortsSection } from "@/components/sections/shorts"
 import { EducationSection } from "@/components/sections/education"
-import {WorkExSection} from "@/components/sections/workex"
+import { WorkExSection } from "@/components/sections/workex"
+import { ProjectSection } from "@/components/sections/project"
 
 
 
@@ -22,6 +23,7 @@ export default function Home() {
       <ShortsSection/>
       <WorkExSection/>
       <SkillSection />
+      <ProjectSection/>
       <CertificateSection/>
       <EducationSection/>
       <ContactSection/>

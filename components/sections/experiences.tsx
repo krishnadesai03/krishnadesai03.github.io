@@ -47,16 +47,7 @@ const experiences = [
     technologies: ["Node.js", "Express", "React", "MongoDB"],
     companyLogo: "/placeholder.svg?height=48&width=48",
     color: "from-green-400 to-green-600",
-  },
-  {
-    role: "Backend Developer",
-    company: "DataTech Solutions",
-    duration: "Jan 2018 - Feb 2019",
-    description: "Focused on developing and optimizing APIs and database architecture using Java and PostgreSQL.",
-    technologies: ["Java", "Spring Boot", "PostgreSQL", "Docker"],
-    companyLogo: "/placeholder.svg?height=48&width=48",
-    color: "from-red-400 to-red-600",
-  },
+  }
 ]
 
 const containerVariants = {
