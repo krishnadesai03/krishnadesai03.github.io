@@ -3,16 +3,21 @@
 import { FaPython, FaDatabase, FaHtml5 } from "react-icons/fa";
 
 const skills = [
-  { name: "Python", icon: <FaPython className="w-8 h-8 text-blue-600" /> },
+  { name: "Python 3.10.9", icon: <FaPython className="w-8 h-8 text-blue-600" /> },
+  { name: "R", icon: <img src="/coding.png" alt="R" className="w-8 h-8" /> },
+  { name: "SQL", icon: <FaDatabase className="w-8 h-8 text-blue-600" /> },
   { name: "Machine Learning", icon: <img src="/coding.png" alt="Machine Learning" className="w-8 h-8" /> },
   { name: "Deep Learning", icon: <img src="/deep-learning.png" alt="Deep Learning" className="w-8 h-8" /> },
-  { name: "Data Visualisation", icon: <img src="/data-visualization.png" alt="Data Visualisation" className="w-8 h-8" /> },
-  { name: "Data Cleansing", icon: <img src="/data-management.png" alt="Data Cleansing" className="w-8 h-8" /> },
-  { name: "MySQL", icon: <FaDatabase className="w-8 h-8 text-blue-600" /> },
-  { name: "Computer Vision", icon: <img src="/computer.png" alt="Computer Vision" className="w-8 h-8" /> },
-  { name: "Data Analysis", icon: <img src="/analysis.png" alt="Data Analysis" className="w-8 h-8" /> },
-  { name: "HTML,CSS,Next.js", icon: <img src="/domain.png" alt="HTML,CSS,NextJs" className="w-8 h-8" /> },
-  { name: "Power BI", icon: <img src="/monitor.png" alt="Power BI" className="w-8 h-8" /> }
+  { name: "TensorFlow", icon: <img src="/deep-learning.png" alt="TensorFlow" className="w-8 h-8" /> },
+  { name: "Keras", icon: <img src="/deep-learning.png" alt="Keras" className="w-8 h-8" /> },
+  { name: "Data Engineering", icon: <img src="/data-management.png" alt="Data Engineering" className="w-8 h-8" /> },
+  { name: "Power BI", icon: <img src="/monitor.png" alt="Power BI" className="w-8 h-8" /> },
+  { name: "Tableau", icon: <img src="/data-visualization.png" alt="Tableau" className="w-8 h-8" /> },
+  { name: "AWS", icon: <img src="/computer.png" alt="AWS" className="w-8 h-8" /> },
+  { name: "MongoDB", icon: <FaDatabase className="w-8 h-8 text-green-600" /> },
+  { name: "PostgreSQL", icon: <FaDatabase className="w-8 h-8 text-blue-600" /> },
+  { name: "Git", icon: <img src="/domain.png" alt="Git" className="w-8 h-8" /> },
+  { name: "Data Analysis", icon: <img src="/analysis.png" alt="Data Analysis" className="w-8 h-8" /> }
 ];
 
 export function SkillSection() {

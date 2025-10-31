@@ -5,7 +5,6 @@ import { CertificateSection  } from "@/components/sections/certification"
 // import { ExperienceSection } from "@/components/sections/experiences"
 import { ContactSection } from "@/components/sections/contact"
 import { BlogSection } from "@/components/sections/blog"
-import { TutorialSection } from "@/components/sections/tutorial"
 import { ShortsSection } from "@/components/sections/shorts"
 import { EducationSection } from "@/components/sections/education"
 import { WorkExSection } from "@/components/sections/workex"
@@ -18,14 +17,13 @@ export default function Home() {
     <div className="flex flex-col">
       <HeroSection />
       <AboutSection />
-      <BlogSection/>
-      <TutorialSection/>
-      <ShortsSection/>
       <WorkExSection/>
+      <BlogSection/>
       <SkillSection />
       <ProjectSection/>
-      <CertificateSection/>
+      <ShortsSection/>
       <EducationSection/>
+      <CertificateSection/>
       <ContactSection/>
     </div>
   )

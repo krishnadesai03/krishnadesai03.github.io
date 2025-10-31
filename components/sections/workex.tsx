@@ -15,60 +15,25 @@ type WorkExperience = {
 const workExperienceData: WorkExperience[] = [
     {
     id: 1,
-    role: "Research Assistant",
-    company: "Indiana University Bloomington",
-    duration: "Aug 2025 - Present",
+    role: "Data Engineering Intern",
+    company: "PROJECT 990",
+    duration: "May 2025 – Present",
     details: [
-      "Conducting research in Animal-Computer Interaction with Deep Learning, MaxQDA, and Python",
-      "Analyzing and preparing large datasets of animal adoption records using data analysis techniques",
-      "Collaborating with faculty and peers to publish research findings in academic journals and conferences",
-      "Assisting in the development of machine learning models to predict animal behavior and adoption likelihood using NLP techniques"
+      "Designed and deployed a robust Python-based data migration pipeline that transformed unstructured IRS tax filings into structured, queryable datasets—enhancing data accessibility, reliability, and downstream analytics efficiency.",
+      "Queried and examined 2 million+ IRS tax records using advanced SQL techniques, uncovering critical data anomalies, schema mismatches, and reporting gaps, while spearheading initiatives for continuous data-quality improvements and audit readiness.",
+      "Defined, tracked, and enforced data-quality KPIs to keep ingested and processed data in sync, giving stakeholders the confidence to make sound, data-driven decisions."
     ]
   },
   {
     id: 2,
-    role: "Lead Data Science Instructor",
-    company: "Jovian.ML",
-    duration: "Jun 2022 – Aug 2023",
+    role: "Data Science & Machine Learning with Python Intern",
+    company: "Technical Coding Research Innovation",
+    duration: "Jan 2022 – Apr 2022",
     details: [
-      "Developed and documented a Python library for inculcating LLM in Python scripts using React hooks",
-      "Led Data Science Bootcamp cohorts as Instructor and Manager",
-      "Conducted 50+ live sessions on Python, Data Analysis, and Deep Learning",
-      "Revamped and created curriculums for the Data Science Bootcamp and technical content for social media",
-      "Created 50+ tutorials and short videos on YouTube on Python and Data Science (with 54K+ views)"
-    ]
-  },
-  {
-    id: 3,
-    role: "Associate Engineer Intern",
-    company: "Symphony Tallent",
-    duration: "April 2022 – June 2022",
-    details: [
-      "Set up Customer Relationship Management Database using MySQL",
-      "Implemented a CRM to ensure its effective utilization",
-      "Used WordPress to create websites(Job Portal) to ease user experience"
-    ]
-  },
-  {
-    id: 4,
-    role: "Assistant Instructor for Data Science Bootcamp",
-    company: "Jovian.ML",
-    duration: "Feb 2021 - Dec 2021",
-    details: [
-      "Resolved 1000+ queries based on Python, Data Analysis, and Deep Learning via 1:1 calls and forum threads",
-      "Evaluated and remarked on 1000+ course-based assignments and projects",
-      "Created repository and solution notebooks (knowledge base) for Data Science and Machine Learning Projects and course work"
-    ]
-  },
-  {
-    id: 5,
-    role: "Campaign Manager : Social Media and Marketing",
-    company: "SCREAM (Non-Profit Organization)",
-    duration: "Feb 2021 - Dec 2021",
-    details: [
-      "Managed end-to-end digital marketing campaigns, guiding creative teams and writing compelling copy for social feeds and donor outreach.",
-      "Spearheaded social media strategy across all platforms, implementing performance analytics to track key metrics and increase audience engagement",
-      "Analyzed content performance data to derive actionable insights, optimizing strategies to boost visibility and support fundraising objectives."
+      "Conducted analytics on an employee dataset having 35 attributes, predicting retention using Python and ML.",
+      "Designed and implemented ETL data pipelines ensuring high-quality datasets from 2940 entries.",
+      "Delivered 8 visualizations (pie charts, column graphs, heatmaps), aligning insights with business performance metrics.",
+      "Developed predictive models with 98.15% training accuracy and 85.26% testing accuracy, supporting resource allocation decisions."
     ]
   }
 ]

@@ -55,7 +55,7 @@ export function Navbar() {
             href="/"
             className="text-2xl font-bold tracking-tighter hover:opacity-80 transition-opacity"
           >
-            hGulati
+            desaikri
           </Link>
 
           <div className="hidden md:flex items-center space-x-8">

@@ -15,58 +15,38 @@ type WorkExperience = {
 const workExperienceData: WorkExperience[] = [
     {
     id: 1,
-    role: "RAG - based Conversational AI Chatbot",
-    company: "Python, LangChain, Vector Database",
-    duration: "",
+    role: "IMDB EMOANALYSIS: Understanding Movie Sentiment with Deep Learning",
+    company: "Python, LSTM, Bi-LSTM, Deep Learning, Sentiment Analysis",
+    duration: "May 2024",
     details: [
-      "Engineered a Retrieval-Augmented Generation (RAG) system to build a chatbot that delivers context-aware responses by ingesting, chunking, and vectorizing external knowledge bases of medical tender data from government.",
-      "Implemented pipeline for semantic search and real-time knowledge retrieval.",
-      "Fine-Tuned BERT to improve semantic similarity and enhance knowledge retrieval."
+      "Developed sentiment analysis models using LSTM and Bi-LSTM, achieving an accuracy of 0.86 on the final model.",
+      "Analyzed a 50,000-record dataset, solving complex data challenges and implementing 5-6 crucial pre-processing steps.",
+      "Applied analytical thinking to derive insights into audience sentiment trends, validating the model on live data with 0.85 accuracy.",
+      "My model outperformed others by 7.5% in terms of accuracy and prediction quality."
     ]
   },
   {
     id: 2,
-    role: "IndyGo Ridership Insights Dashboard",
-    company: "Power BI, Data Analytics",
-    duration: "",
+    role: "Binary Image Classification for Waste Management",
+    company: "TensorFlow, Keras, CNN, GCP, Cloud Run, Data Augmentation",
+    duration: "2024",
     details: [
-      "Developed an interactive Power BI dashboard analyzing 2022–2024 IndyGo ridership data (25.9M boardings over 12 months), identifying 1.1% boarding growth and high-traffic routes with over 2M monthly passengers.",
-      "Applied ETL and statistical analysis with fact/dimension tables to provide stop-level insights and support strategic transit improvements.",
-      "Integrated on-time performance metrics (79.4% average OTP) to enhance open data platform scalability and public engagement."
+      "Developed a deep learning model to classify waste images into 2 categories namely recyclable and non-recyclable images.",
+      "Used a dataset of 1,800 training and 450 testing images, ensuring balanced category representation for effective model evaluation.",
+      "Implemented data preprocessing techniques, like image augmentation and normalization, to enhance model performance by 10%.",
+      "Designed and trained a CNN-based model using TensorFlow and Keras, achieving an accuracy of 72% on the test dataset.",
+      "Leveraged GCP for data storage, model training using AI Platform, and deployment through Cloud Run for real-time classification."
     ]
   },
   {
     id: 3,
-    role: "Dog Emotion Recognition with Vision Transformers and Grad-CAM",
-    company: "Computer Vision, Vision Transformers (ViT), YOLO, Data Annotation, Data Augmentation, Semi-supervised Learning, Image Classification",
-    duration: "",
+    role: "Global Superstore Analytics – AWS End-to-End Data Pipeline and Dashboard",
+    company: "AWS, S3, Glue Crawler, Redshift, Athena, Power BI, ETL",
+    duration: "2024",
     details: [
-      "Developed an end-to-end computer vision system to classify dog emotions from image and video data using a Vision Transformer (ViT) architecture",
-       "Implemented a data annotation strategy to address a lack of labeled data, first training a ViT on a small, annotated dataset and then using a trained YOLO model to generate new annotations on a large, unannotated dataset",
-       "Mitigated data noise and handled missing values, achieving an improved classification accuracy of 70%.",
-       "Employed Grad-CAM for model interpretability, visualizing attention maps to understand model focus areas during emotion classification."
-    ]
-  },
-  {
-    id: 4,
-    role: "Time Series Analysis & Visualization of Indian Stock Market Data",
-    company: "Python, Pandas, Matplotlib, Scikit-learn, Data Analytics, Visualisation",
-    duration: "",
-    details: [
-      "Conducted exploratory data analysis (EDA) on Indian stock data (Apr–Sep 2020) using Pandas, identifying volatility patterns and trends.",
-      "Implemented time series forecasting (moving averages, exponential smoothing, ARIMA) with Scikit-learn to generate Buy/Sell signals for trading optimization.",
-      "Developed interactive Matplotlib/Seaborn visualizations and dashboards highlighting correlations, anomalies, and metrics for risk assessment and portfolio management."
-    ]
-  },
-  {
-    id: 5,
-    role: "Facial Expression Recognition using Deep Learning: CNNs and Transfer Learning",
-    company: "Python, Pandas, Matplotlib, Scikit-learn, Data Analytics, Visualisation",
-    duration: "",
-    details: [
-      "Processed and normalized the fer2013 dataset (35,887 training images, 7 classes). Implemented a data augmentation pipeline (random rotations, horizontal flips, zooms) to improve model generalization and mitigate overfitting.",
-      "Architected and trained a Convolutional Neural Network (CNN) from scratch using PyTorch, achieving 75% accuracy on the validation set.",
-      "Leveraged transfer learning with a fine-tuned ResNet architecture, achieving 68% accuracy on unseen test data."
+      "Designed and implemented a scalable data pipeline on AWS (S3, Glue Crawler + ETL, Redshift) to process Global Superstore data, improving overall data usability by ~10% and reducing ETL runtime by ~5% through schema optimization and structured transformations.",
+      "Queried and analyzed transformed datasets with Athena and built an interactive Power BI dashboard (10+ KPIs, sales trends, profitability insights), helping reduce manual reporting effort by ~15% and making insights more accessible to business stakeholders.",
+      "Configured IAM roles, resolved connectivity/authentication issues, and implemented CloudWatch monitoring, improving pipeline stability and reducing troubleshooting time by ~10%."
     ]
   }
 ]

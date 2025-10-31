@@ -8,24 +8,29 @@ import { FaDownload, FaGithub, FaLinkedin, FaEnvelope } from 'react-icons/fa'
 import Image from "next/image"
 
 const skills = [
-  "Machine Learning ",
-  "Python",
-  "Deep Learning",
-  "Pytorch",
-  "Data Visualization",
-  "Data Analysis",
-  "Natural Language Processing",
-  "Computer Vision",
+  "Python 3.10.9",
+  "R",
   "SQL",
+  "Machine Learning",
+  "Deep Learning",
+  "Data Engineering",
+  "TensorFlow",
+  "Keras",
+  "Power BI",
+  "Tableau",
+  "AWS",
+  "MongoDB",
+  "PostgreSQL",
+  "Git",
 ]
 
 const interests = [
-  { icon: "🤎☕", label: "Coffee" },
-  { icon: "📖", label: "Learning" },
-  { icon: "⛰️", label: "Travel" },
-  { icon: "💃🏻", label: "Dance" },
-  { icon: "📚", label: "Reading" },
-  { icon: "🎨", label: "Art" },
+  { icon: "✈️", label: "Travel" },
+  { icon: "🏔️", label: "Adventure" },
+  { icon: "🍳", label: "Cooking" },
+  { icon: "📖", label: "Reading" },
+  { icon: "🧩", label: "Puzzle Solving" },
+  { icon: "🍕", label: "Eating" },
 ]
 
 const floatingAnimation = {
@@ -63,13 +68,9 @@ export function AboutSection() {
               transition={{ duration: 0.5 }}
               className="relative aspect-square rounded-2xl overflow-hidden"
             >
-              <Image
-                src="/main.jpg"
-                alt="Profile"
-                fill
-                className="object-cover"
-                priority
-              />
+              <div className="w-full h-full bg-gradient-to-br from-primary to-secondary flex items-center justify-center">
+                <span className="text-6xl font-bold text-white">KD</span>
+              </div>
               <motion.div 
                 className="absolute bg-gradient-to-t from-transparent to-transparent"
                 
@@ -96,7 +97,7 @@ export function AboutSection() {
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.2 }}
             >
-              <h2 className="text-4xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary">Data Scientist with a Creative Pulse. </h2>
+              <h2 className="text-4xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary">Data Science Graduate Student & Data Engineering Specialist</h2>
               <AnimatePresence mode="wait">
                 {showBio ? (
                   <motion.p
@@ -107,13 +108,12 @@ export function AboutSection() {
                     transition={{ duration: 0.3 }}
                     className="text-muted-foreground"
                   >
-                    I’m Himani Gulati, a Data Science Master’s student at IU’s Luddy School, 
-                    fueled by a passion for turning data into stories that inspire action. 
-                    In a world powered by AI, I bring the human touch—blending analytics with 
-                    creativity to solve real problems. My journey spans leading data science workshops, 
-                    crafting impactful campaigns for an NGO, and the never-ending learning path of diving deeper
-                    into what everyone likes to call BLACK BOXES.
-                    I’m driven by curiosity and a desire to take on challenges that push the boundaries of what’s possible.
+                    I'm Krishna Desai, a Data Science Master's student at Indiana University Bloomington, 
+                    passionate about transforming raw data into actionable insights through advanced analytics and machine learning. 
+                    With experience in data engineering, ETL pipelines, and predictive modeling, I specialize in building 
+                    scalable data solutions that drive business value. My journey includes working with 2M+ IRS tax records, 
+                    developing sentiment analysis models with 86% accuracy, and implementing end-to-end AWS data pipelines. 
+                    I'm driven by the challenge of solving complex data problems and creating intelligent systems that make a real impact.
   
                   </motion.p>
                 ) : (
@@ -125,7 +125,7 @@ export function AboutSection() {
                     transition={{ duration: 0.3 }}
                     className="text-muted-foreground"
                   >
-                    In a world ruled by AI, I bring to the table what AI can’t! What makes me human!  
+                    Passionate about leveraging data science and engineering to solve real-world problems and drive innovation.  
                   </motion.p>
                 )}
               </AnimatePresence>
@@ -221,7 +221,7 @@ export function AboutSection() {
               className="flex flex-wrap gap-4"
             >
               <a
-                href="https://drive.google.com/drive/folders/1gFhE5EGYPOBI6G_F5zl2-W5Dq8y-thCP?usp=sharing"
+                href="/Krishna Desai - RESUME.pdf"
                 download
                 className="inline-flex items-center justify-center px-4 py-2 rounded-md bg-gradient-to-r from-primary to-secondary hover:from-primary/80 hover:to-secondary/80 text-primary-foreground"
               >
@@ -229,14 +229,14 @@ export function AboutSection() {
                 Download CV
               </a>
               <a
-                href="mailto:hgmani007@gmail.com"
+                href="mailto:desaikri@iu.edu"
                 className="inline-flex items-center justify-center px-4 py-2 border border-primary text-primary hover:bg-primary hover:text-primary-foreground rounded-md"
               >
                 <FaEnvelope className="mr-2 h-4 w-4" />
                 Contact Me
               </a>
               <a
-                href="https://github.com/himani007" // Replace with your actual GitHub profile
+                href="https://github.com/krishnadesai03"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center p-2 rounded-md text-primary hover:bg-primary/20"
@@ -244,7 +244,7 @@ export function AboutSection() {
                 <FaGithub className="h-5 w-5" />
               </a>
               <a
-                href="https://www.linkedin.com/in/himani-gulati-958b3119a/" // Replace with your LinkedIn URL
+                href="https://www.linkedin.com/in/krishna-desai-7162b8224/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center p-2 rounded-md text-primary hover:bg-primary/20"

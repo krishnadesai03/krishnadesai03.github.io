@@ -73,7 +73,7 @@ export function CertificateSection() {
               transition={{ duration: 0.5 }}
               className="text-5xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary"
             >
-              Certificates
+              Leadership and Personal Achievements
             </motion.h2>
             <motion.p
               initial={{ y: 20, opacity: 0 }}
@@ -81,7 +81,7 @@ export function CertificateSection() {
               transition={{ delay: 0.2, duration: 0.5 }}
               className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto"
             >
-              Showcasing my certified skills
+              Showcasing my leadership roles and personal accomplishments
             </motion.p>
           </div>
 
@@ -135,7 +135,7 @@ export function CertificateSection() {
                     onClick={() => setSelectedCertificate(cert)}
                     className={`group inline-flex items-center justify-center rounded-lg bg-white/20 px-4 py-2 text-lg font-medium hover:bg-white/30 ${cert.textColor}`}
                   >
-                    View Certificate
+                    View Details
                     <FaChevronRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
                   </button>
                 </motion.div>

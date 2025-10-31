@@ -28,7 +28,7 @@ export function HeroSection() {
             transition={{ duration: 0.5 }}
             className="text-4xl md:text-6xl font-bold mb-6"
           >
-            Hi✨, I'm Himani
+            Hi✨, I'm Krishna
           </motion.h1>
 
           <motion.div
@@ -39,11 +39,11 @@ export function HeroSection() {
           >
             <TypeAnimation
               sequence={[
-                "Data Science Student",
+                "Data Science Graduate Student",
                 1000,
-                "I Craft Engaging and Informative Content",
+                "Data Engineering & Machine Learning Specialist",
                 1000,
-                "I Write! Captivating, Humour Endulged and Insightful articles",
+                "Building Intelligent Data Solutions",
                 1000,
               ]}
               wrapper="span"
