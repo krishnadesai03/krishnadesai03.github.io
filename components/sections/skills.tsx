@@ -22,10 +22,10 @@ const skills = [
 
 export function SkillSection() {
   return (
-    <section id="skills" className="py-24 bg-gradient-to-br from-background to-secondary">
+    <section id="skills" className="py-20 bg-gradient-to-br from-background to-secondary">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-5xl font-bold mb-6 text-primary">Skills</h2>
+          <h2 className="text-5xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary">Skills</h2>
           <p className="text-lg md:text-xl text-muted-foreground mb-8">My technical expertise</p>
         </div>
         <div className="grid grid-cols-3 sm:grid-cols-4 lg:grid-cols-5 gap-4">

@@ -1,118 +1,171 @@
 "use client"
 
-import { useState } from "react"
-import { motion, AnimatePresence } from "framer-motion"
-import { FaChevronDown, FaBriefcase } from "react-icons/fa"
+import { motion } from "framer-motion"
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 
-type WorkExperience = {
-  id: number
-  role: string
-  company: string
-  duration: string
-  details: string[]
-}
+type Project = {
+  id: number;
+  title: string;
+  description: string;
+  image: string;
+  color: string;
+  textColor: string;
+};
 
-const workExperienceData: WorkExperience[] = [
-    {
+const projectsAI: Project[] = [
+  {
     id: 1,
-    role: "IMDB EMOANALYSIS: Understanding Movie Sentiment with Deep Learning",
-    company: "Python, LSTM, Bi-LSTM, Deep Learning, Sentiment Analysis",
-    duration: "May 2024",
-    details: [
-      "Developed sentiment analysis models using LSTM and Bi-LSTM, achieving an accuracy of 0.86 on the final model.",
-      "Analyzed a 50,000-record dataset, solving complex data challenges and implementing 5-6 crucial pre-processing steps.",
-      "Applied analytical thinking to derive insights into audience sentiment trends, validating the model on live data with 0.85 accuracy.",
-      "My model outperformed others by 7.5% in terms of accuracy and prediction quality."
-    ]
+    title: "SHMAS: Smart Hospital Multi-Agent System",
+    description: "Built an AI-driven multi-agent system with five autonomous agents (triage, scheduling, bed management, conflict resolution, and mental health analysis) to automate and optimize hospital workflows in real time. Integrated LLMs via Groq APIs (DeepSeek-R1-Distill-LLaMA-70B) and LangGraph for intelligent decision-making.",
+    image: "/shmas-img.png",
+    color: "from-blue-500 to-purple-600",
+    textColor: "text-blue-100",
   },
   {
     id: 2,
-    role: "Binary Image Classification for Waste Management",
-    company: "TensorFlow, Keras, CNN, GCP, Cloud Run, Data Augmentation",
-    duration: "2024",
-    details: [
-      "Developed a deep learning model to classify waste images into 2 categories namely recyclable and non-recyclable images.",
-      "Used a dataset of 1,800 training and 450 testing images, ensuring balanced category representation for effective model evaluation.",
-      "Implemented data preprocessing techniques, like image augmentation and normalization, to enhance model performance by 10%.",
-      "Designed and trained a CNN-based model using TensorFlow and Keras, achieving an accuracy of 72% on the test dataset.",
-      "Leveraged GCP for data storage, model training using AI Platform, and deployment through Cloud Run for real-time classification."
-    ]
+    title: "IMDB Emotional Analysis: Understanding Movie Sentiment with Deep Learning",
+    description: "Developed sentiment analysis models using LSTM and Bi-LSTM, achieving an accuracy of 0.86 on the final model.",
+    image: "/IMDB.png",
+    color: "from-purple-500 to-pink-600",
+    textColor: "text-purple-100",
   },
   {
     id: 3,
-    role: "Global Superstore Analytics – AWS End-to-End Data Pipeline and Dashboard",
-    company: "AWS, S3, Glue Crawler, Redshift, Athena, Power BI, ETL",
-    duration: "2024",
-    details: [
-      "Designed and implemented a scalable data pipeline on AWS (S3, Glue Crawler + ETL, Redshift) to process Global Superstore data, improving overall data usability by ~10% and reducing ETL runtime by ~5% through schema optimization and structured transformations.",
-      "Queried and analyzed transformed datasets with Athena and built an interactive Power BI dashboard (10+ KPIs, sales trends, profitability insights), helping reduce manual reporting effort by ~15% and making insights more accessible to business stakeholders.",
-      "Configured IAM roles, resolved connectivity/authentication issues, and implemented CloudWatch monitoring, improving pipeline stability and reducing troubleshooting time by ~10%."
-    ]
-  }
-]
+    title: "Smart Waste Classifier",
+    description: "Designed and deployed an end-to-end binary image classification system to categorize waste as recyclable or non-recyclable using CNN architectures with TensorFlow and Keras. Improved performance using data augmentation, transfer learning (ResNet50), and tuning, raising accuracy from 72% to 88%.",
+    image: "/Waste Classification.png",
+    color: "from-green-500 to-teal-600",
+    textColor: "text-green-100",
+  },
+];
+
+const projectsDataEng: Project[] = [
+  {
+    id: 1,
+    title: "Banking Risk Analytics Platform",
+    description: "Built a cloud-native data lakehouse by streaming MySQL data into Snowflake with Kafka and dbt, designing fact-dimension models that cut query latency by 40%. Developed an explainable ML-based risk scoring system (XGBoost + SHAP + MLflow) exposed via FastAPI, allowing live credit-risk evaluation.",
+    image: "/Risk Analytics.png",
+    color: "from-red-500 to-orange-600",
+    textColor: "text-red-100",
+  },
+  {
+    id: 2,
+    title: "Global Superstore Analytics – AWS End-to-End Data Pipeline",
+    description: "Designed and implemented a scalable data pipeline on AWS to process Global Superstore data, improving overall data usability by ~10%.",
+    image: "/Superstore Analytics.png",
+    color: "from-indigo-500 to-blue-600",
+    textColor: "text-indigo-100",
+  },
+  {
+    id: 3,
+    title: "YouTrend Data Lake",
+    description: "Designed and deployed a data lake on AWS S3 to store and manage over 100,000 records of trending YouTube video data, implementing robust partitioning and cataloging via AWS Glue, resulting in 99% data query success rate for downstream analytics.",
+    image: "/Youtrend.png",
+    color: "from-yellow-500 to-orange-500",
+    textColor: "text-yellow-100",
+  },
+  {
+    id: 4,
+    title: "Twitter Data Pipeline",
+    description: "Built an end-to-end data pipeline to ingest 1,000 tweets per run, transform them into normalized CSVs, and load to S3 with under 3-minute end-to-end latency. Productionized workflows with Airflow DAGs achieving 99% task success over 50+ scheduled runs.",
+    image: "/Twitter Data Pipeline.png",
+    color: "from-cyan-500 to-blue-600",
+    textColor: "text-cyan-100",
+  },
+];
 
 export function ProjectSection() {
-  const [expanded, setExpanded] = useState<number | null>(null)
-
-  const toggleExpand = (id: number) => {
-    setExpanded(prev => (prev === id ? null : id))
-  }
+  const renderProjects = (projects: Project[]) => (
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {projects.map((project, index) => (
+        <motion.div
+          key={project.id}
+          className={`bg-gradient-to-br ${project.color} p-6 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2`}
+          initial={{ y: 50, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ delay: 0.5 + index * 0.1, duration: 0.6 }}
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
+        >
+          <motion.img
+            src={project.image}
+            alt={project.title}
+            className="w-full h-48 object-cover rounded-t-lg mb-4"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.6 + index * 0.1, duration: 0.5 }}
+          />
+          <motion.h3
+            className={`text-xl font-semibold mt-4 ${project.textColor}`}
+            initial={{ y: 20, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ delay: 0.8 + index * 0.1, duration: 0.5 }}
+          >
+            {project.title}
+          </motion.h3>
+          <motion.p
+            className={`mt-2 ${project.textColor} opacity-90 line-clamp-4`}
+            initial={{ y: 20, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ delay: 1 + index * 0.1, duration: 0.5 }}
+          >
+            {project.description}
+          </motion.p>
+        </motion.div>
+      ))}
+    </div>
+  )
 
   return (
-    <section id="project" className="bg-gray-100 py-16 px-6 sm:px-12">
-      <div className="max-w-4xl mx-auto">
-        <div className="text-center mb-12">
-          <h2 className="text-4xl font-bold text-gray-800 mb-2">Projects</h2>
-          <p className="text-gray-600 text-lg"></p>
-        </div>
-
-        <div className="space-y-6">
-          {workExperienceData.map((exp) => (
-            <div
-              key={exp.id}
-              className="bg-white rounded-xl shadow-md p-6 transition hover:shadow-lg"
+    <section id="projects" className="bg-gradient-to-br from-background to-secondary/30 transition-colors duration-300 overflow-hidden py-12">
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.5 }}
+        className="relative min-h-screen flex flex-col items-center justify-center"
+      >
+        <div className="container mx-auto px-4 z-10">
+          <div className="text-center mb-12">
+            <motion.h2
+              initial={{ scale: 0.5, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              transition={{ duration: 0.5 }}
+              className="text-5xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary"
             >
-              <div
-                className="flex justify-between items-center cursor-pointer"
-                onClick={() => toggleExpand(exp.id)}
-              >
-                <div className="flex items-start gap-4">
-                  <FaBriefcase className="text-blue-600 mt-1" size={24} />
-                  <div>
-                    <h3 className="text-xl font-semibold text-gray-800">{exp.role}</h3>
-                    <p className="text-gray-600">{exp.company}</p>
-                    <p className="text-gray-500 text-sm mt-1">{exp.duration}</p>
-                  </div>
-                </div>
-                <motion.div
-                  animate={{ rotate: expanded === exp.id ? 180 : 0 }}
-                  transition={{ duration: 0.3 }}
-                >
-                  <FaChevronDown className="text-gray-500" />
-                </motion.div>
-              </div>
+              Projects
+            </motion.h2>
 
-              <AnimatePresence>
-                {expanded === exp.id && (
-                  <motion.div
-                    initial={{ opacity: 0, height: 0 }}
-                    animate={{ opacity: 1, height: "auto" }}
-                    exit={{ opacity: 0, height: 0 }}
-                    transition={{ duration: 0.4 }}
-                    className="overflow-hidden mt-4"
-                  >
-                    <ul className="list-disc list-inside text-gray-700 space-y-1 pl-2">
-                      {exp.details.map((point, idx) => (
-                        <li key={idx}>{point}</li>
-                      ))}
-                    </ul>
-                  </motion.div>
-                )}
-              </AnimatePresence>
-            </div>
-          ))}
+            <motion.p
+              initial={{ y: 20, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{ delay: 0.2, duration: 0.5 }}
+              className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto"
+            >
+              Notable Projects & Data Solutions
+            </motion.p>
+          </div>
+
+          <Tabs defaultValue="ai" className="w-full">
+            <TabsList className="grid w-full grid-cols-2 mb-8">
+              <TabsTrigger value="ai" className="text-lg">AI & ML</TabsTrigger>
+              <TabsTrigger value="dataeng" className="text-lg">Data Engineering & Analytics</TabsTrigger>
+            </TabsList>
+
+            <motion.div
+              initial={{ y: 20, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{ delay: 0.4, duration: 0.5 }}
+            >
+              <TabsContent value="ai">
+                {renderProjects(projectsAI)}
+              </TabsContent>
+              <TabsContent value="dataeng">
+                {renderProjects(projectsDataEng)}
+              </TabsContent>
+            </motion.div>
+          </Tabs>
         </div>
-      </div>
+      </motion.div>
     </section>
   )
 }

@@ -5,71 +5,108 @@ import { TypeAnimation } from "react-type-animation"
 import { Button } from "@/components/ui/button"
 import { ChevronDown } from "lucide-react"
 import Link from "next/link"
+import Image from "next/image"
+
+const floatingAnimation = {
+  y: ["-10%", "10%"],
+  transition: {
+    y: {
+      duration: 2,
+      repeat: Infinity,
+      repeatType: "reverse",
+      ease: "easeInOut"
+    }
+  }
+}
 
 export function HeroSection() {
   return (
     <motion.section
+      id="hero"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.5 }}
       className="relative min-h-screen flex items-center justify-center overflow-hidden"
     >
-      {/* Animated background */}
-      {/* <div className="absolute inset-0 z-0">
-        <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-secondary/20 animate-gradient" />
-        <div className="absolute inset-0 bg-grid-white/[0.02] bg-grid-pattern" />
-      </div> */}
-
       <div className="container mx-auto px-4 z-10">
-        <div className="text-center">
-          <motion.h1
-            initial={{ scale: 0.5, opacity: 0 }}
-            animate={{ scale: 1, opacity: 1 }}
-            transition={{ duration: 0.5 }}
-            className="text-4xl md:text-6xl font-bold mb-6"
-          >
-            Hi✨, I'm Krishna
-          </motion.h1>
+        <div className="grid gap-12 md:grid-cols-2 items-center">
+          {/* Left half - Content */}
+          <div className="text-center">
+            <motion.h1
+              initial={{ scale: 0.5, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              transition={{ duration: 0.5 }}
+              className="text-4xl md:text-6xl font-bold mb-6"
+            >
+              Hi✨, I'm Krishna
+            </motion.h1>
 
-          <motion.div
-            initial={{ y: 20, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ delay: 0.2, duration: 1.5 }}
-            className="text-xl md:text-2xl text-muted-foreground mb-8 h-[60px]"
-          >
-            <TypeAnimation
-              sequence={[
-                "Data Science Graduate Student",
-                1000,
-                "Data Engineering & Machine Learning Specialist",
-                1000,
-                "Building Intelligent Data Solutions",
-                1000,
-              ]}
-              wrapper="span"
-              speed={1}
-              repeat={Infinity}
-            />
-          </motion.div>
+            <motion.div
+              initial={{ y: 20, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{ delay: 0.2, duration: 1.5 }}
+              className="text-xl md:text-2xl text-muted-foreground mb-8 h-[60px]"
+            >
+              <TypeAnimation
+                sequence={[
+                  "Data Science Graduate Student",
+                  1000,
+                  "Data Engineering & Machine Learning Specialist",
+                  1000,
+                  "Building Intelligent Data Solutions",
+                  1000,
+                ]}
+                wrapper="span"
+                speed={1}
+                repeat={Infinity}
+              />
+            </motion.div>
 
-          <motion.div
-            initial={{ y: 20, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ delay: 0.4, duration: 0.5 }}
-            className="flex justify-center space-x-4"
-          >
-            <Link href={"/#blogs"}>
-            <Button  size="lg" className="group">
-              View Related Work
-              <ChevronDown className="ml-2 h-4 w-4 transition-transform group-hover:translate-y-1" />
-            </Button>
-           </Link>
-            <Link href={"/#contact"}>
-            <Button  size="lg" variant="outline">
-              Contact Me
-            </Button>
+            <motion.div
+              initial={{ y: 20, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{ delay: 0.4, duration: 0.5 }}
+              className="flex justify-center space-x-4"
+            >
+              <Link href={"/#work-experience"}>
+                <Button size="lg" className="group">
+                  View Related Work
+                  <ChevronDown className="ml-2 h-4 w-4 transition-transform group-hover:translate-y-1" />
+                </Button>
               </Link>
-          </motion.div>
+              <Link href={"/#contact"}>
+                <Button size="lg" variant="outline">
+                  Contact Me
+                </Button>
+              </Link>
+            </motion.div>
+          </div>
+
+          {/* Right half - Image */}
+          <div className="relative flex justify-center">
+            <motion.div
+              initial={{ scale: 0.9, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              transition={{ duration: 0.5 }}
+              className="relative aspect-square rounded-2xl overflow-visible max-w-md w-full"
+            >
+              <Image
+                src="/main.jpg"
+                alt="Krishna Desai"
+                fill
+                className="object-cover rounded-2xl"
+                priority
+              />
+              <motion.div
+                className="absolute -bottom-4 -left-4 w-24 h-24 bg-secondary rounded-full z-10"
+                animate={floatingAnimation}
+              />
+              <motion.div
+                className="absolute -top-4 -right-4 w-16 h-16 bg-primary rounded-full z-10"
+                animate={floatingAnimation}
+              />
+            </motion.div>
+          </div>
         </div>
       </div>
 

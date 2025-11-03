@@ -1,12 +1,11 @@
 import { HeroSection } from "@/components/sections/hero"
 import { AboutSection } from "@/components/sections/about"
 import { SkillSection } from "@/components/sections/skills"
-import { CertificateSection  } from "@/components/sections/certification" 
+import { LeadershipSection } from "@/components/sections/leadership" 
 // import { ExperienceSection } from "@/components/sections/experiences"
 import { ContactSection } from "@/components/sections/contact"
 import { BlogSection } from "@/components/sections/blog"
-import { ShortsSection } from "@/components/sections/shorts"
-import { EducationSection } from "@/components/sections/education"
+import { AchievementsSection } from "@/components/sections/achievements"
 import { WorkExSection } from "@/components/sections/workex"
 import { ProjectSection } from "@/components/sections/project"
 
@@ -18,12 +17,10 @@ export default function Home() {
       <HeroSection />
       <AboutSection />
       <WorkExSection/>
-      <BlogSection/>
-      <SkillSection />
       <ProjectSection/>
-      <ShortsSection/>
-      <EducationSection/>
-      <CertificateSection/>
+      <SkillSection />
+      <AchievementsSection/>
+      <LeadershipSection/>
       <ContactSection/>
     </div>
   )

@@ -46,10 +46,10 @@ export function WorkExSection() {
   }
 
   return (
-    <section id="work-experience" className="bg-gray-100 py-16 px-6 sm:px-12">
+    <section id="work-experience" className="bg-gray-100 py-20 px-6 sm:px-12">
       <div className="max-w-4xl mx-auto">
         <div className="text-center mb-12">
-          <h2 className="text-4xl font-bold text-gray-800 mb-2">Work Experience</h2>
+          <h2 className="text-5xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary">Work Experience</h2>
           <p className="text-gray-600 text-lg">My professional journey and contributions</p>
         </div>
 

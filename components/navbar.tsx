@@ -2,41 +2,56 @@
 
 import { useState, useEffect } from "react"
 import Link from "next/link"
-import { usePathname } from "next/navigation"
 import { motion } from "framer-motion"
 import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
-import { Menu, Moon, Sun } from "lucide-react"
-import { useTheme } from "next-themes"
+import { Menu } from "lucide-react"
 
 const navItems = [
-  { name: "Home", path: "/" },
-  { name: "About", path: "/#about" },
-  { name: "Blog", path: "/#blogs" },
-  { name: "Skills", path: "/#skills" },
-  { name: "Experience", path: "/#work-experience" },
-  { name: "Contact", path: "/#contact" },
+  { name: "Home", path: "/", hash: "hero" },
+  { name: "About", path: "/#about", hash: "about" },
+  { name: "Experience", path: "/#work-experience", hash: "work-experience" },
+  { name: "Projects", path: "/#projects", hash: "projects" },
+  { name: "Skills", path: "/#skills", hash: "skills" },
+  { name: "Achievements", path: "/#achievements", hash: "achievements" },
+  { name: "Contact", path: "/#contact", hash: "contact" },
 ]
 
 export function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
-  const [mounted, setMounted] = useState(false)
-  const pathname = usePathname()
-  const { theme, setTheme } = useTheme()
+  const [activeSection, setActiveSection] = useState("")
 
   useEffect(() => {
-    setMounted(true)
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50)
+      
+      // Get all sections
+      const sections = navItems.map(item => document.getElementById(item.hash)).filter(Boolean)
+      
+      // Find the current section in view
+      const scrollPosition = window.scrollY + 100
+      let currentSection = ""
+      
+      for (const section of sections) {
+        if (section) {
+          const offsetTop = section.offsetTop
+          const offsetHeight = section.offsetHeight
+          if (scrollPosition >= offsetTop && scrollPosition < offsetTop + offsetHeight) {
+            currentSection = section.id
+            break
+          }
+        }
+      }
+      
+      setActiveSection(currentSection || "hero")
     }
+    
     window.addEventListener("scroll", handleScroll)
+    handleScroll() // Initial check
+    
     return () => window.removeEventListener("scroll", handleScroll)
   }, [])
-
-  if (!mounted) {
-    return null
-  }
 
   return (
     <motion.nav
@@ -44,9 +59,7 @@ export function Navbar() {
       animate={{ y: 0 }}
       className={cn(
         "fixed top-0 z-50 w-full transition-all duration-300",
-        isScrolled
-          ? "bg-background/80 backdrop-blur-md shadow-sm"
-          : "bg-transparent"
+        "bg-background/80 backdrop-blur-md shadow-sm"
       )}
     >
       <div className="container mx-auto px-4">
@@ -55,7 +68,7 @@ export function Navbar() {
             href="/"
             className="text-2xl font-bold tracking-tighter hover:opacity-80 transition-opacity"
           >
-            desaikri
+            Krishna
           </Link>
 
           <div className="hidden md:flex items-center space-x-8">
@@ -65,13 +78,13 @@ export function Navbar() {
                 href={item.path}
                 className={cn(
                   "relative text-sm font-medium transition-colors hover:text-primary",
-                  pathname === item.path
+                  activeSection === item.hash
                     ? "text-primary"
                     : "text-muted-foreground"
                 )}
               >
                 {item.name}
-                {pathname === item.path && (
+                {activeSection === item.hash && (
                   <motion.div
                     layoutId="navbar-indicator"
                     className="absolute -bottom-1 left-0 right-0 h-0.5 bg-primary"
@@ -82,18 +95,6 @@ export function Navbar() {
           </div>
 
           <div className="flex items-center space-x-4">
-            <Button
-              variant="ghost"
-              size="icon"
-              aria-label="Toggle theme"
-              onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-            >
-              {theme === "dark" ? (
-                <Sun className="h-5 w-5" />
-              ) : (
-                <Moon className="h-5 w-5" />
-              )}
-            </Button>
             <Button
               variant="ghost"
               size="icon"
@@ -125,7 +126,7 @@ export function Navbar() {
               href={item.path}
               className={cn(
                 "block py-2 text-sm font-medium transition-colors hover:text-primary",
-                pathname === item.path
+                activeSection === item.hash
                   ? "text-primary"
                   : "text-muted-foreground"
               )}
