@@ -1,7 +1,6 @@
 import './globals.css';
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
-import { ThemeProvider } from '@/components/theme-provider';
 import { Navbar } from '@/components/navbar';
 import { Footer } from '@/components/footer';
 import { Toaster } from '@/components/ui/toaster';
@@ -9,8 +8,8 @@ import { Toaster } from '@/components/ui/toaster';
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: 'Folio Motion - Interactive Developer Portfolio',
-  description: 'Folio Motion is a dynamic and visually engaging developer portfolio designed to showcase the skills, projects, and experiences of a modern developer. With a focus on cutting-edge web technologies such as Next.js, React, and Tailwind CSS, this portfolio highlights a deep understanding of both front-end and back-end development. It incorporates interactive animations, smooth transitions, and responsive design, offering visitors an immersive experience. Explore a collection of projects demonstrating expertise in UI/UX design, full-stack development, and more, alongside professional roles, certifications, and contributions to open-source communities.',
+  title: 'Krishna Desai - Portfolio',
+  description: 'Portfolio of Krishna Desai, a Data Science Master\'s student at Indiana University Bloomington, specializing in Data Engineering, Analytics, and Machine Learning. Showcasing professional achievements, projects, skills, and research work.',
   icons: {
     icon: 'https://tinyurl.com/2xhrkaao', // Link to your favicon
   },
@@ -22,24 +21,17 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en">
       <head>
         <link rel="icon" href="https://tinyurl.com/2xhrkaao" />
       </head>
       <body className={inter.className}>
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange
-        >
-          <div className="relative min-h-screen">
-            <Navbar />
-            <main>{children}</main>
-            {/* <Footer /> */}
-          </div>
-          <Toaster />
-        </ThemeProvider>
+        <div className="relative min-h-screen">
+          <Navbar />
+          <main>{children}</main>
+          {/* <Footer /> */}
+        </div>
+        <Toaster />
       </body>
     </html>
   );

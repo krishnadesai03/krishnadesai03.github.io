@@ -2,13 +2,11 @@
 
 import { useState, useEffect } from "react"
 import Link from "next/link"
-import { usePathname } from "next/navigation"
 import { motion } from "framer-motion"
 import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
-import { Menu, Moon, Sun } from "lucide-react"
-import { useTheme } from "next-themes"
-
+import { Menu } from "lucide-react"
+import { usePathname } from 'next/navigation';
 
 
 export function Navbar() {
@@ -94,10 +92,6 @@ export function Navbar() {
       return activeHash === ''
     }
     return activeHash === itemPath.substring(1)
-  }
-
-  if (!mounted) {
-    return null
   }
 
   return (

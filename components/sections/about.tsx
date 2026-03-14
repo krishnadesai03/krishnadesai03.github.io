@@ -2,6 +2,33 @@
 
 import { motion } from "framer-motion"
 import { Database, Brain, Cloud } from "lucide-react"
+import { Education } from "@/components/sections/education";
+
+const educationData: Education[] = [
+  {
+    id: 1,
+    degree: "Master of Science in Data Science",
+    school: "Indiana University Bloomington",
+    duration: "Aug 2024 – May 2026",
+    details: [
+      "Relevant Courses: Applied Algorithms, Information Visualization, Data Visualization",
+      "Currently working on data engineering projects and machine learning research",
+      "GPA: 3.7 / 4.0"
+    ]
+  },
+  {
+    id: 2,
+    degree: "Bachelor of Engineering in Information Technology",
+    school: "University of Mumbai",
+    duration: "Jan 2021 – Jul 2024",
+    details: [
+      "Relevant Courses: Data Structures, Database Management, Software Engineering, Web Development",
+      "Final year project: IMDB Sentiment Analysis with Deep Learning (86% accuracy)",
+      "Internship: Data Science & Machine Learning Intern at Technical Coding Research Innovation",
+      "CGPI: 9.52 / 10.0"
+    ]
+  }
+]
 
 export function AboutSection() {
   return (

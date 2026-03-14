@@ -4,7 +4,7 @@ import { useState } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import { FaChevronDown, FaUniversity } from "react-icons/fa"
 
-type Education = {
+export type Education = {
   id: number
   degree: string
   school: string
