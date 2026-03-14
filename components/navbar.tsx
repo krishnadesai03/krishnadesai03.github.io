@@ -9,133 +9,189 @@ import { Button } from "@/components/ui/button"
 import { Menu, Moon, Sun } from "lucide-react"
 import { useTheme } from "next-themes"
 
-const navItems = [
-  { name: "Home", path: "/" },
-  { name: "About", path: "/#about" },
-  { name: "Blog", path: "/#blogs" },
-  { name: "Skills", path: "/#skills" },
-  { name: "Experience", path: "/#work-experience" },
-  { name: "Contact", path: "/#contact" },
-]
+
 
 export function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const [mounted, setMounted] = useState(false)
+  const [activeHash, setActiveHash] = useState("")
   const pathname = usePathname()
-  const { theme, setTheme } = useTheme()
+
+  // Updated navigation items as per user request
+  const navItems = [
+    { name: "Home", path: "/" },
+    { name: "About", path: "/#about" },
+    { name: "Projects", path: "/#projects" },
+    { name: "Experience", path: "/#work-experience" },
+    { name: "Education & Skills", path: "/#education-skills" },
+    { name: "Achievements", path: "/#shorts" },
+    { name: "Recommendations", path: "/#faq" },
+  ]
 
   useEffect(() => {
     setMounted(true)
+    setActiveHash(window.location.hash || "")
+
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50)
+      setIsScrolled(window.scrollY > 20)
+
+      const sections = navItems.filter(item => item.path.startsWith('/#')).map(item => item.path.substring(2))
+      let currentSection = ""
+
+      // Find the most visible section
+      for (const section of sections) {
+        const element = document.getElementById(section)
+        if (element) {
+          const rect = element.getBoundingClientRect()
+          // If the top of the element is above or close to the center of the screen
+          // and bottom is below the top of the screen
+          if (rect.top <= 200 && rect.bottom >= 100) {
+            currentSection = `#${section}`
+            break
+          }
+        }
+      }
+
+      // If at top of page, select Home
+      if (window.scrollY < 100) {
+        currentSection = ""
+      }
+
+      setActiveHash(currentSection)
     }
+
     window.addEventListener("scroll", handleScroll)
+    // Delay initial check slightly to allow elements to render
+    setTimeout(handleScroll, 100)
+
     return () => window.removeEventListener("scroll", handleScroll)
-  }, [])
+  }, []) // Remove navItems dependency since it's constant inside
+
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, path: string) => {
+    e.preventDefault();
+    setIsMobileMenuOpen(false);
+    if (path.startsWith('/#')) {
+      const targetId = path.substring(2);
+      const element = document.getElementById(targetId);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+        // Delay URL update to allow scroll animation to finish without Next.js router interruption
+        setTimeout(() => {
+          window.history.pushState(null, '', path);
+        }, 800);
+      }
+    } else if (path === '/') {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      setTimeout(() => {
+        window.history.pushState(null, '', path);
+      }, 800);
+    }
+  }
+
+  const isActive = (itemPath: string) => {
+    if (itemPath === '/') {
+      return activeHash === ''
+    }
+    return activeHash === itemPath.substring(1)
+  }
 
   if (!mounted) {
     return null
   }
 
   return (
-    <motion.nav
-      initial={{ y: -100 }}
-      animate={{ y: 0 }}
-      className={cn(
-        "fixed top-0 z-50 w-full transition-all duration-300",
-        isScrolled
-          ? "bg-background/80 backdrop-blur-md shadow-sm"
-          : "bg-transparent"
-      )}
-    >
-      <div className="container mx-auto px-4">
-        <div className="flex h-16 items-center justify-between">
-          <Link
-            href="/"
-            className="text-2xl font-bold tracking-tighter hover:opacity-80 transition-opacity"
-          >
-            desaikri
-          </Link>
-
-          <div className="hidden md:flex items-center space-x-8">
-            {navItems.map((item) => (
-              <Link
-                key={item.path}
-                href={item.path}
-                className={cn(
-                  "relative text-sm font-medium transition-colors hover:text-primary",
-                  pathname === item.path
-                    ? "text-primary"
-                    : "text-muted-foreground"
-                )}
-              >
-                {item.name}
-                {pathname === item.path && (
-                  <motion.div
-                    layoutId="navbar-indicator"
-                    className="absolute -bottom-1 left-0 right-0 h-0.5 bg-primary"
-                  />
-                )}
-              </Link>
-            ))}
-          </div>
-
-          <div className="flex items-center space-x-4">
-            <Button
-              variant="ghost"
-              size="icon"
-              aria-label="Toggle theme"
-              onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-            >
-              {theme === "dark" ? (
-                <Sun className="h-5 w-5" />
-              ) : (
-                <Moon className="h-5 w-5" />
-              )}
-            </Button>
-            <Button
-              variant="ghost"
-              size="icon"
-              className="md:hidden"
-              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            >
-              <Menu className="h-5 w-5" />
-            </Button>
-          </div>
-        </div>
-      </div>
-
-      {/* Mobile Menu */}
-      <motion.div
-        initial={{ opacity: 0, y: -20 }}
-        animate={{
-          opacity: isMobileMenuOpen ? 1 : 0,
-          y: isMobileMenuOpen ? 0 : -20,
-        }}
+    <div className="fixed top-6 left-0 right-0 z-50 flex justify-center px-4">
+      <motion.nav
+        initial={{ y: -100, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ duration: 0.5 }}
         className={cn(
-          "absolute top-16 left-0 right-0 bg-background/95 backdrop-blur-md shadow-lg md:hidden",
-          !isMobileMenuOpen && "hidden"
+          "flex items-center justify-between px-6 py-3 rounded-full transition-all duration-300",
+          "bg-[#1C2314] text-white shadow-lg", // Dark green/black background like the reference
+          "w-full max-w-6xl"
         )}
       >
-        <div className="container mx-auto px-4 py-4">
+        {/* Logo */}
+        <a
+          href="/"
+          onClick={(e) => handleNavClick(e, '/')}
+          className="text-xl font-bold tracking-tight hover:opacity-80 transition-opacity whitespace-nowrap mr-4"
+        >
+          Krishna Desai
+        </a>
+
+        {/* Desktop Navigation */}
+        <div className="hidden xl:flex items-center space-x-6">
           {navItems.map((item) => (
-            <Link
+            <a
               key={item.path}
               href={item.path}
+              onClick={(e) => handleNavClick(e, item.path)}
               className={cn(
-                "block py-2 text-sm font-medium transition-colors hover:text-primary",
-                pathname === item.path
-                  ? "text-primary"
-                  : "text-muted-foreground"
+                "text-sm font-medium transition-colors hover:text-white",
+                isActive(item.path) ? "text-white font-bold" : "text-gray-400"
               )}
-              onClick={() => setIsMobileMenuOpen(false)}
             >
               {item.name}
-            </Link>
+            </a>
           ))}
         </div>
+
+        {/* Right Side: Contact Button & Theme/Mobile Toggles */}
+        <div className="flex items-center gap-3 ml-4">
+          <a href="/#contact" onClick={(e) => handleNavClick(e, '/#contact')}>
+            <Button
+              variant="default"
+              className="hidden sm:flex bg-white text-[#1C2314] hover:bg-gray-200 rounded-full px-6 font-medium"
+            >
+              Contact Me
+            </Button>
+          </a>
+
+          {/* Mobile Menu Trigger */}
+          <Button
+            variant="ghost"
+            size="icon"
+            className="xl:hidden text-white hover:bg-white/10 rounded-full"
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          >
+            <Menu className="h-5 w-5" />
+          </Button>
+        </div>
+      </motion.nav>
+
+      {/* Mobile Menu Dropdown */}
+      <motion.div
+        initial={{ opacity: 0, scale: 0.95 }}
+        animate={{
+          opacity: isMobileMenuOpen ? 1 : 0,
+          scale: isMobileMenuOpen ? 1 : 0.95,
+          pointerEvents: isMobileMenuOpen ? "auto" : "none",
+        }}
+        className="absolute top-20 left-4 right-4 bg-[#1C2314] text-white rounded-2xl p-4 shadow-xl xl:hidden flex flex-col gap-2"
+      >
+        {navItems.map((item) => (
+          <a
+            key={item.path}
+            href={item.path}
+            onClick={(e) => handleNavClick(e, item.path)}
+            className={cn(
+              "px-4 py-2 hover:bg-white/10 rounded-lg transition-colors text-sm font-medium",
+              isActive(item.path) ? "bg-white/20 text-white font-bold" : "text-gray-300"
+            )}
+          >
+            {item.name}
+          </a>
+        ))}
+        <a
+          href="/#contact"
+          onClick={(e) => handleNavClick(e, '/#contact')}
+          className="px-4 py-2 hover:bg-white/10 rounded-lg transition-colors text-sm font-bold text-center mt-2 bg-white/10"
+        >
+          Contact Me
+        </a>
       </motion.div>
-    </motion.nav>
+    </div>
   )
 }

@@ -1,265 +1,78 @@
 "use client"
 
-import { useState } from "react"
-import { motion, AnimatePresence } from "framer-motion"
-import { Button } from "@/components/ui/button"
-import { Card } from "@/components/ui/card"
-import { FaDownload, FaGithub, FaLinkedin, FaEnvelope } from 'react-icons/fa'
-import Image from "next/image"
-
-const skills = [
-  "Python 3.10.9",
-  "R",
-  "SQL",
-  "Machine Learning",
-  "Deep Learning",
-  "Data Engineering",
-  "TensorFlow",
-  "Keras",
-  "Power BI",
-  "Tableau",
-  "AWS",
-  "MongoDB",
-  "PostgreSQL",
-  "Git",
-]
-
-const interests = [
-  { icon: "✈️", label: "Travel" },
-  { icon: "🏔️", label: "Adventure" },
-  { icon: "🍳", label: "Cooking" },
-  { icon: "📖", label: "Reading" },
-  { icon: "🧩", label: "Puzzle Solving" },
-  { icon: "🍕", label: "Eating" },
-]
-
-const floatingAnimation = {
-  y: ["-10%", "10%"],
-  transition: {
-    y: {
-      duration: 2,
-      repeat: Infinity,
-      repeatType: "reverse",
-      ease: "easeInOut"
-    }
-  }
-}
+import { motion } from "framer-motion"
+import { Database, Brain, Cloud } from "lucide-react"
 
 export function AboutSection() {
-  const [activeSkill, setActiveSkill] = useState<string | null>(null)
-  const [showBio, setShowBio] = useState(false)
-
   return (
-    <section id="about" className="py-24 bg-gradient-to-br from-background to-secondary/5 overflow-hidden">
-      <div className="container px-4 mx-auto relative">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          className="grid gap-12 md:grid-cols-2 items-center"
-        >
-          {/* Image Column */}
-          <div className="relative">
+    <section id="about" className="py-20 bg-[#d5dec5] overflow-hidden">
+      <div className="container px-4 mx-auto">
+        <div className="max-w-7xl mx-auto grid gap-6 lg:gap-10 md:grid-cols-[40%_60%] lg:grid-cols-[35%_65%] xl:grid-cols-[30%_70%] items-center">
+
+          {/* Left Column: Circles */}
+          <div className="relative h-[500px] flex items-center justify-center">
+            {/* Circle 1 */}
             <motion.div
-              initial={{ scale: 0.9, opacity: 0 }}
+              initial={{ scale: 0, opacity: 0 }}
               whileInView={{ scale: 1, opacity: 1 }}
-              viewport={{ once: true }}
+              viewport={{ once: false, amount: 0.2 }}
               transition={{ duration: 0.5 }}
-              className="relative aspect-square rounded-2xl overflow-hidden"
+              className="absolute left-[10%] md:left-[15%] lg:left-[5%] z-10 w-48 h-48 bg-[#1C2314] rounded-full flex flex-col items-center justify-center text-white shadow-xl"
             >
-              <div className="w-full h-full bg-gradient-to-br from-primary to-secondary flex items-center justify-center">
-                <span className="text-6xl font-bold text-white">KD</span>
-              </div>
-              <motion.div 
-                className="absolute bg-gradient-to-t from-transparent to-transparent"
-                
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 1 }}
-              />
+              <span className="text-5xl font-bold">20+</span>
+              <span className="text-base opacity-80 text-center px-4 mt-1">Projects Built</span>
             </motion.div>
-            <motion.div
-              className="absolute -bottom-4 -left-4 w-24 h-24 bg-secondary rounded-full"
-              animate={floatingAnimation}
-            />
-            <motion.div
-              className="absolute -top-4 -right-4 w-16 h-16 bg-primary rounded-full"
-              animate={floatingAnimation}
-            />
-          </div>
 
-          {/* Content Column */}
-          <div className="space-y-8">
+            {/* Circle 2 */}
             <motion.div
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
+              initial={{ scale: 0, opacity: 0 }}
+              whileInView={{ scale: 1, opacity: 1 }}
+              viewport={{ once: false, amount: 0.2 }}
               transition={{ duration: 0.5, delay: 0.2 }}
+              className="absolute right-[5%] md:right-[10%] lg:right-[5%] z-20 w-44 h-44 bg-[#2A3321] rounded-full flex flex-col items-center justify-center text-white shadow-xl border-4 border-[#F0F2E9]"
             >
-              <h2 className="text-4xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary">Data Science Graduate Student & Data Engineering Specialist</h2>
-              <AnimatePresence mode="wait">
-                {showBio ? (
-                  <motion.p
-                    key="full-bio"
-                    initial={{ opacity: 0, height: 0 }}
-                    animate={{ opacity: 1, height: "auto" }}
-                    exit={{ opacity: 0, height: 0 }}
-                    transition={{ duration: 0.3 }}
-                    className="text-muted-foreground"
-                  >
-                    I'm Krishna Desai, a Data Science Master's student at Indiana University Bloomington, 
-                    passionate about transforming raw data into actionable insights through advanced analytics and machine learning. 
-                    With experience in data engineering, ETL pipelines, and predictive modeling, I specialize in building 
-                    scalable data solutions that drive business value. My journey includes working with 2M+ IRS tax records, 
-                    developing sentiment analysis models with 86% accuracy, and implementing end-to-end AWS data pipelines. 
-                    I'm driven by the challenge of solving complex data problems and creating intelligent systems that make a real impact.
-  
-                  </motion.p>
-                ) : (
-                  <motion.p
-                    key="short-bio"
-                    initial={{ opacity: 0, height: 0 }}
-                    animate={{ opacity: 1, height: "auto" }}
-                    exit={{ opacity: 0, height: 0 }}
-                    transition={{ duration: 0.3 }}
-                    className="text-muted-foreground"
-                  >
-                    Passionate about leveraging data science and engineering to solve real-world problems and drive innovation.  
-                  </motion.p>
-                )}
-              </AnimatePresence>
-              <Button 
-                variant="link" 
-                onClick={() => setShowBio(!showBio)}
-                className="mt-2 p-0 h-auto font-semibold text-primary hover:text-primary/80"
-              >
-                {showBio ? "Read Less" : "Read More"}
-              </Button>
-            </motion.div>
-
-            {/* Skills */}
-            <motion.div
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.3 }}
-              className="space-y-4"
-            >
-              <h3 className="text-xl font-semibold">Core Skills</h3>
-              <div className="flex flex-wrap gap-2">
-                {skills.map((skill, index) => (
-                  <motion.button
-                    key={skill}
-                    initial={{ opacity: 0, scale: 0.8 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.3, delay: index * 0.1 }}
-                    className={`px-3 py-1 rounded-full text-sm ${
-                      activeSkill === skill 
-                        ? "bg-primary text-primary-foreground" 
-                        : "bg-secondary text-secondary-foreground"
-                    }`}
-                    onClick={() => setActiveSkill(activeSkill === skill ? null : skill)}
-                  >
-                    {skill}
-                  </motion.button>
-                ))}
-              </div>
-              <AnimatePresence>
-                {activeSkill && (
-                  <motion.div
-                    initial={{ opacity: 0, y: -10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: -10 }}
-                    transition={{ duration: 0.2 }}
-                    className="mt-2 p-2 bg-secondary/50 rounded-md text-sm"
-                  >
-                    {`${activeSkill}: Click to see projects using this skill!`}
-                  </motion.div>
-                )}
-              </AnimatePresence>
-            </motion.div>
-
-            {/* Interests */}
-            <motion.div
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.4 }}
-              className="space-y-4"
-            >
-              <h3 className="text-xl font-semibold">Interests</h3>
-              <div className="grid grid-cols-2 gap-4">
-                {interests.map((interest, index) => (
-                  <motion.div
-                    key={interest.label}
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    whileHover={{ scale: 1.05 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.3, delay: index * 0.1 }}
-                    className="flex items-center space-x-2 p-2 bg-secondary/30 rounded-md"
-                  >
-                    <span className="text-2xl">{interest.icon}</span>
-                    <span className="text-sm text-secondary-foreground">
-                      {interest.label}
-                    </span>
-                  </motion.div>
-                ))}
-              </div>
-            </motion.div>
-
-            {/* Actions */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.5 }}
-              className="flex flex-wrap gap-4"
-            >
-              <a
-                href="/Krishna Desai - RESUME.pdf"
-                download
-                className="inline-flex items-center justify-center px-4 py-2 rounded-md bg-gradient-to-r from-primary to-secondary hover:from-primary/80 hover:to-secondary/80 text-primary-foreground"
-              >
-                <FaDownload className="mr-2 h-4 w-4" />
-                Download CV
-              </a>
-              <a
-                href="mailto:desaikri@iu.edu"
-                className="inline-flex items-center justify-center px-4 py-2 border border-primary text-primary hover:bg-primary hover:text-primary-foreground rounded-md"
-              >
-                <FaEnvelope className="mr-2 h-4 w-4" />
-                Contact Me
-              </a>
-              <a
-                href="https://github.com/krishnadesai03"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center p-2 rounded-md text-primary hover:bg-primary/20"
-              >
-                <FaGithub className="h-5 w-5" />
-              </a>
-              <a
-                href="https://www.linkedin.com/in/krishna-desai-7162b8224/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center p-2 rounded-md text-primary hover:bg-primary/20"
-              >
-                <FaLinkedin className="h-5 w-5" />
-              </a>
+              <span className="text-4xl font-bold">15+</span>
+              <span className="text-base opacity-80 text-center px-2 mt-1">Technologies Used</span>
             </motion.div>
           </div>
-        </motion.div>
 
-        {/* Glowing orbs */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full max-w-4xl max-h-4xl opacity-30 pointer-events-none">
-          <div className="absolute top-0 left-0 w-2 h-2 bg-primary rounded-full mix-blend-multiply filter blur-xl animate-blob" />
-          <div className="absolute top-0 right-0 w-2 h-2 bg-secondary rounded-full mix-blend-multiply filter blur-xl animate-blob animation-delay-2000" />
-          <div className="absolute bottom-0 left-1/2 w-2 h-2 bg-accent rounded-full mix-blend-multiply filter blur-xl animate-blob animation-delay-4000" />
+          {/* Right Column: Content */}
+          <div className="space-y-6 text-center md:text-left lg:pl-6 xl:pl-10">
+            <motion.div
+              initial={{ opacity: 0, x: 20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: false, amount: 0.2 }}
+              transition={{ duration: 0.5 }}
+            >
+
+
+              <p className="text-3xl md:text-5xl text-[#1C2314] font-medium leading-tight font-sans tracking-tight">
+                Passionate about leveraging data <br />
+                science and engineering <br />
+                to solve real-world problems and <br />
+                drive innovation.
+              </p>
+
+              {/* Icon / Feature Items: Adjusted size */}
+              <div className="flex flex-col md:flex-row flex-nowrap justify-center md:justify-start gap-3 lg:gap-4 xl:gap-8 mt-12 items-center w-full">
+                <div className="flex items-center gap-2 text-[#1C2314] whitespace-nowrap">
+                  <Database className="w-6 h-6 xl:w-8 xl:h-8 shrink-0" strokeWidth={1.5} />
+                  <span className="text-sm lg:text-base xl:text-lg font-medium tracking-tight">50+ Datasets Analyzed</span>
+                </div>
+                <div className="hidden md:block w-px h-6 xl:h-10 bg-[#1C2314]/20 shrink-0" />
+                <div className="flex items-center gap-2 text-[#1C2314] whitespace-nowrap">
+                  <Brain className="w-6 h-6 xl:w-8 xl:h-8 shrink-0" strokeWidth={1.5} />
+                  <span className="text-sm lg:text-base xl:text-lg font-medium tracking-tight">10+ AI/ML Projects</span>
+                </div>
+                <div className="hidden md:block w-px h-6 xl:h-10 bg-[#1C2314]/20 shrink-0" />
+                <div className="flex items-center gap-2 text-[#1C2314] whitespace-nowrap">
+                  <Cloud className="w-6 h-6 xl:w-8 xl:h-8 shrink-0" strokeWidth={1.5} />
+                  <span className="text-sm lg:text-base xl:text-lg font-medium tracking-tight">5+ Cloud Data Pipelines</span>
+                </div>
+              </div>
+            </motion.div>
+          </div>
+
         </div>
       </div>
     </section>

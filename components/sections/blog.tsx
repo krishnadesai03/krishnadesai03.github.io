@@ -7,134 +7,104 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } f
 import { FaChevronRight, FaGithub, FaExternalLinkAlt } from 'react-icons/fa'
 import { Card } from "@/components/ui/card"
 
-type Blog = {
-  id: number;
-  title: string;
-  description: string;
-  image: string;
-  color: string;
-  textColor: string;
-  mediumUrl: string;
-};
+type Education = {
+  id: number
+  degree: string
+  school: string
+  duration: string
+  details: string[]
+}
 
-const blogs: Blog[] = [
+const educationData: Education[] = [
   {
     id: 1,
-    title: "Understanding the Gaussian Filter",
-    description: "Breaking down the BLURRRRR! A comprehensive guide to the Gaussian filter, and how it works.",
-    image: "/blog1b_image.png",
-    color: "from-blue-500 to-purple-600",
-    textColor: "text-blue-100",
-    mediumUrl: "https://himani-gulati.medium.com/understanding-the-gaussian-filter-c2cb4fb4f16b"
+    degree: "Master of Science in Data Science",
+    school: "Indiana University Bloomington",
+    duration: "Aug 2024 – May 2026",
+    details: [
+      "Relevant Courses: Applied Algorithms, Information Visualization, Data Visualization",
+      "Currently working on data engineering projects and machine learning research",
+      "GPA: 3.7 / 4.0"
+    ]
   },
   {
     id: 2,
-    title: "Introduction to Diffusion Models",
-    description: "A theoretical understanding of Diffusion models for beginners.",
-    image: "/blog2_image.png",
-    color: "from-green-500 to-yellow-500",
-    textColor: "text-green-100",
-    mediumUrl: "https://himani-gulati.medium.com/introduction-to-diffusion-models-b9c8f2f534fa"
-  },
-  {
-    id: 3,
-    title: "Hyper-parameter Tuning in Decision Trees and Random Forests",
-    description: "A comprehensive guide to hyper-parameter tuning in Decision Trees and Random Forests.",
-    image: "/blog3_image.png",
-    color: "from-red-500 to-pink-600",
-    textColor: "text-red-100",
-    mediumUrl: "https://medium.com/@himani-gulati/hyper-parameter-tuning-in-decision-trees-and-random-forests-3bdee09ea5af"
+    degree: "Bachelor of Engineering in Information Technology",
+    school: "University of Mumbai",
+    duration: "Jan 2021 – Jul 2024",
+    details: [
+      "Relevant Courses: Data Structures, Database Management, Software Engineering, Web Development",
+      "Final year project: IMDB Sentiment Analysis with Deep Learning (86% accuracy)",
+      "CGPI: 9.52 / 10.0"
+    ]
   }
-];
+]
 
 export function BlogSection() {
   return (
-    <section id="blogs" className="bg-gradient-to-br from-background to-secondary/30 transition-colors duration-300 overflow-hidden">
+    <section id="education" className="bg-[#d5dec5] py-20 transition-colors duration-300 overflow-hidden">
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5 }}
-        className="relative min-h-screen flex flex-col items-center justify-center"
+        className="relative flex flex-col items-center justify-center"
       >
 
-        <div className="container mx-auto px-4 z-10">
+        <div className="container mx-auto px-4 z-10 max-w-6xl">
           <div className="text-center mb-12">
             <motion.h2
               initial={{ scale: 0.5, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               transition={{ duration: 0.5 }}
-              className="text-5xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary"
+              className="text-3xl md:text-4xl font-medium mb-4 text-[#1C2314]"
             >
-              Blogs
+              Education
             </motion.h2>
 
             <motion.p
               initial={{ y: 20, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ delay: 0.2, duration: 0.5 }}
-              className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto"
+              className="text-xl text-[#1C2314] mb-8 max-w-2xl mx-auto opacity-80"
             >
-              Informative Blogs
+              My academic background and specialization
             </motion.p>
           </div>
 
-          {/* Blogs Cards */}
+          {/* Education Cards */}
           <motion.div
             initial={{ y: 20, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ delay: 0.4, duration: 0.5 }}
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+            className="grid grid-cols-1 md:grid-cols-2 gap-8"
           >
-            {blogs.map((project, index) => (
+            {educationData.map((edu, index) => (
               <motion.div
-                key={project.id}
-                className={`bg-gradient-to-br ${project.color} p-6 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2`}
+                key={edu.id}
+                className="bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 flex flex-col justify-start"
                 initial={{ y: 50, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ delay: 0.5 + index * 0.1, duration: 0.6 }}
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
+                whileHover={{ scale: 1.02 }}
               >
-                <motion.img
-                  src={project.image}
-                  alt={project.title}
-                  className="w-full h-48 object-cover rounded-t-lg mb-4"
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{ delay: 0.6 + index * 0.1, duration: 0.5 }}
-                />
-                <motion.h3
-                  className={`text-2xl font-semibold mt-4 ${project.textColor}`}
-                  initial={{ y: 20, opacity: 0 }}
-                  animate={{ y: 0, opacity: 1 }}
-                  transition={{ delay: 0.8 + index * 0.1, duration: 0.5 }}
-                >
-                  {project.title}
-                </motion.h3>
-                <motion.p
-                  className={`mt-2 ${project.textColor} opacity-90`}
-                  initial={{ y: 20, opacity: 0 }}
-                  animate={{ y: 0, opacity: 1 }}
-                  transition={{ delay: 1 + index * 0.1, duration: 0.5 }}
-                >
-                  {project.description}
-                </motion.p>
-                <motion.div
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{ delay: 1.2 + index * 0.1, duration: 0.5 }}
-                  className="mt-4"
-                >
-                  <a
-                    href={project.mediumUrl} // Make sure this URL exists in your project object
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className={`group inline-flex items-center justify-center rounded-lg bg-white/20 px-4 py-2 text-lg font-medium hover:bg-white/30 ${project.textColor}`}
-                  >
-                    View Blog
-                    <FaChevronRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
-                  </a>
-                </motion.div>
+                <div className="mb-4">
+                  <h3 className="text-2xl font-bold text-[#1C2314] mb-2">{edu.degree}</h3>
+                  <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-2">
+                    <p className="text-lg font-semibold text-gray-700">{edu.school}</p>
+                    <span className="inline-block px-3 py-1 bg-gray-100 text-gray-600 rounded-full text-sm font-medium">
+                      {edu.duration}
+                    </span>
+                  </div>
+                </div>
+
+                <ul className="space-y-2 mt-4">
+                  {edu.details.map((point, idx) => (
+                    <li key={idx} className="flex items-start text-gray-600">
+                      <span className="mr-2 mt-1.5 h-1.5 w-1.5 bg-[#1C2314] rounded-full shrink-0" />
+                      <span>{point}</span>
+                    </li>
+                  ))}
+                </ul>
               </motion.div>
             ))}
           </motion.div>

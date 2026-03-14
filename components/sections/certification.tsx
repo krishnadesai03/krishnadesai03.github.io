@@ -61,7 +61,8 @@ export function CertificateSection() {
     >
       <motion.div
         initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: false, amount: 0.1 }}
         transition={{ duration: 0.5 }}
         className="relative min-h-screen flex flex-col items-center justify-center py-16"
       >
@@ -69,7 +70,8 @@ export function CertificateSection() {
           <div className="text-center mb-12">
             <motion.h2
               initial={{ scale: 0.5, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
+              whileInView={{ scale: 1, opacity: 1 }}
+              viewport={{ once: false, amount: 0.2 }}
               transition={{ duration: 0.5 }}
               className="text-5xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary"
             >
@@ -77,7 +79,8 @@ export function CertificateSection() {
             </motion.h2>
             <motion.p
               initial={{ y: 20, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
+              whileInView={{ y: 0, opacity: 1 }}
+              viewport={{ once: false, amount: 0.2 }}
               transition={{ delay: 0.2, duration: 0.5 }}
               className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto"
             >
@@ -87,17 +90,19 @@ export function CertificateSection() {
 
           <motion.div
             initial={{ y: 20, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
+            whileInView={{ y: 0, opacity: 1 }}
+            viewport={{ once: false, amount: 0.1 }}
             transition={{ delay: 0.4, duration: 0.5 }}
             className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
           >
             {certificates.map((cert, idx) => (
               <motion.div
                 key={cert.id}
-                className={`bg-gradient-to-br ${cert.color} p-6 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2`}
+                className={`bg-gradient-to-br ${cert.color} p-6 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 flex flex-col`}
                 initial={{ y: 50, opacity: 0 }}
-                animate={{ y: 0, opacity: 1 }}
-                transition={{ delay: 0.5 + idx * 0.1, duration: 0.6 }}
+                whileInView={{ y: 0, opacity: 1 }}
+                viewport={{ once: false, amount: 0.1 }}
+                transition={{ delay: 0.1 + idx * 0.1, duration: 0.5 }}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
@@ -106,29 +111,35 @@ export function CertificateSection() {
                   alt={cert.title}
                   className="w-full h-40 object-cover rounded-md mb-3 shadow"
                   initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{ delay: 0.6 + idx * 0.1, duration: 0.5 }}
+                  whileInView={{ opacity: 1 }}
+                  viewport={{ once: false }}
+                  transition={{ delay: 0.2 + idx * 0.1, duration: 0.5 }}
                 />
                 <motion.h3
                   className={`text-xl font-semibold mt-2 ${cert.textColor}`}
                   initial={{ y: 20, opacity: 0 }}
-                  animate={{ y: 0, opacity: 1 }}
-                  transition={{ delay: 0.8 + idx * 0.1, duration: 0.5 }}
+                  whileInView={{ y: 0, opacity: 1 }}
+                  viewport={{ once: false }}
+                  transition={{ delay: 0.3 + idx * 0.1, duration: 0.5 }}
                 >
                   {cert.title}
                 </motion.h3>
-                <motion.p
-                  className={`mt-1 ${cert.textColor} opacity-90`}
-                  initial={{ y: 20, opacity: 0 }}
-                  animate={{ y: 0, opacity: 1 }}
-                  transition={{ delay: 1 + idx * 0.1, duration: 0.5 }}
-                >
-                  {cert.description}
-                </motion.p>
+                <div className="flex-grow">
+                  <motion.p
+                    className={`mt-1 ${cert.textColor} opacity-90`}
+                    initial={{ y: 20, opacity: 0 }}
+                    whileInView={{ y: 0, opacity: 1 }}
+                    viewport={{ once: false }}
+                    transition={{ delay: 0.4 + idx * 0.1, duration: 0.5 }}
+                  >
+                    {cert.description}
+                  </motion.p>
+                </div>
                 <motion.div
                   initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{ delay: 1.2 + idx * 0.1, duration: 0.5 }}
+                  whileInView={{ opacity: 1 }}
+                  viewport={{ once: false }}
+                  transition={{ delay: 0.5 + idx * 0.1, duration: 0.5 }}
                   className="mt-4"
                 >
                   <button

@@ -1,285 +1,172 @@
 "use client"
 
-import { useState } from "react"
-import { motion, AnimatePresence } from "framer-motion"
-import { Button } from "@/components/ui/button"
-import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog"
-import { FaChevronRight, FaGithub, FaExternalLinkAlt, FaChevronLeft } from 'react-icons/fa'
-import { Card } from "@/components/ui/card"
+import { motion } from "framer-motion"
 import Image from "next/image"
+import { FaHospitalAlt, FaAws, FaShieldAlt, FaProjectDiagram } from 'react-icons/fa'
 
-const cardVariants = {
-  hidden: { opacity: 0, y: 50 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.6 } }
-};
-
-// Achievement 1 images in the specified order
-const achievement1Images = [
-  "/certificate.jpeg",
-  "/krishna_with_certificate.jpeg",
-  "/team_group.jpeg",
-  "/shmas-img.png"
-]
-
-// Achievement 2 images in the specified order
-const achievement2Images = [
-  "/Data Engineering Professional Certificate by DeepLearning.AI.jpg",
-  "/deep-learning_ai_aws_logo.png",
-  "/joe_reis.webp"
-]
-
-type Short = {
-  id: number;
-  shortsUrl: string;
-}
-
-const shorts: Short[] = [
+const achievementsData = [
   {
     id: 1,
-    shortsUrl: "https://www.youtube.com/embed/xl7YrCyo14s"
+    title: "Smart Hospital MAS",
+    description: "Developed a multi-agent AI system for mood analysis, triage, scheduling, and bed allocation; improved hospital workflow efficiency. 2nd Runner-Up.",
+    icon: <FaHospitalAlt className="text-gray-700 w-5 h-5" />,
+    hoverImage: "/certificate.jpeg", // Using one of the images from before
+    link: "https://drive.google.com/file/d/1W0ufOArAAACcHMNx9Wb5TMh_nk4a_fxG/view?usp=drive_link"
   },
   {
     id: 2,
-    shortsUrl: "https://www.youtube.com/embed/-frWnf-N83M"
+    title: "AWS Certified Professional Data Engineer",
+    description: "Completed the Data Engineering Professional Certificate, covering data ingestion, modeling, and pipeline orchestration on AWS.",
+    icon: <FaAws className="text-gray-700 w-6 h-6" />,
+    hoverImage: "/Data Engineering Professional Certificate by DeepLearning.AI.jpg",
+    link: "https://drive.google.com/file/d/1noFerHeHNaofj62aCBDsJNIlZ8wNlo4A/view?usp=sharing"
   },
   {
     id: 3,
-    shortsUrl: "https://www.youtube.com/embed/hSXe3416MZA"
+    title: "AI Fraud Detection",
+    description: "Conducted research on AI and ML-based fraud detection, comparing techniques like SVM, ANN, and HMM to improve accuracy.",
+    icon: <FaShieldAlt className="text-gray-700 w-5 h-5" />,
+    hoverImage: "/ai_fraud_cert.png",
+    link: "https://drive.google.com/file/d/1bTAEg71PpSvg1dV317K9F6HzJfiK5Z7z/view?usp=drive_link"
+  },
+  {
+    id: 4,
+    title: "Deep Learning Object Detection",
+    description: "Conducted research on deep learning–based object detection, comparing CNN architectures like R-CNN, Fast R-CNN, and YOLO to improve accuracy and speed.",
+    icon: <FaProjectDiagram className="text-gray-700 w-5 h-5" />,
+    hoverImage: "/dl_object_cert.png",
+    link: "https://drive.google.com/file/d/1mHubo7U5b28lZzUoJ1sT-NwHmp60J6FB/view?usp=drive_link"
   }
 ]
 
 export function ShortsSection() {
-  // State for image carousel in first achievement
-  const [currentImageIndex1, setCurrentImageIndex1] = useState(0)
-  // State for image carousel in second achievement
-  const [currentImageIndex2, setCurrentImageIndex2] = useState(0)
-  
-  const nextImage1 = () => {
-    setCurrentImageIndex1((prev) => (prev + 1) % achievement1Images.length)
-  }
-  
-  const prevImage1 = () => {
-    setCurrentImageIndex1((prev) => (prev - 1 + achievement1Images.length) % achievement1Images.length)
-  }
-  
-  const nextImage2 = () => {
-    setCurrentImageIndex2((prev) => (prev + 1) % achievement2Images.length)
-  }
-  
-  const prevImage2 = () => {
-    setCurrentImageIndex2((prev) => (prev - 1 + achievement2Images.length) % achievement2Images.length)
-  }
   return (
-    <section id="shorts" className="bg-gradient-to-br from-background to-secondary/30 transition-colors duration-300 overflow-hidden">
+    <section id="shorts" className="bg-white pt-[110px] pb-24 transition-colors duration-300 overflow-hidden">
       <motion.div
         initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true }}
         transition={{ duration: 0.5 }}
-        className="relative min-h-screen flex flex-col items-center justify-center"
+        className="flex flex-col items-center justify-center w-full"
       >
-
-        <div className="container mx-auto px-4 z-10">
-          <div className="text-center mb-12">
+        <div className="container mx-auto px-6 z-10 w-full max-w-7xl">
+          <div className="text-center mb-6">
             <motion.h2
-              initial={{ scale: 0.5, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
+              initial={{ scale: 0.9, opacity: 0 }}
+              whileInView={{ scale: 1, opacity: 1 }}
+              viewport={{ once: true }}
               transition={{ duration: 0.5 }}
-              className="text-5xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary"
+              className="text-3xl md:text-4xl font-medium mb-3 text-[#1C2314]"
             >
-              Professional Achievements
+              Achievements
             </motion.h2>
 
             <motion.p
               initial={{ y: 20, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
+              whileInView={{ y: 0, opacity: 1 }}
+              viewport={{ once: true }}
               transition={{ delay: 0.2, duration: 0.5 }}
-              className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto"
+              className="text-xl text-gray-600 mb-6 max-w-2xl mx-auto"
             >
-              My notable professional accomplishments
+              Certifications earned — hover to explore.
             </motion.p>
           </div>
 
-          {/* Achievements Cards */}
-          <motion.div
-            initial={{ y: 20, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ delay: 0.4, duration: 0.5 }}
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
-          >
-            {[1, 2, 3, 4, 5, 6].map((index) => (
+          {/* 4-Container Split Layout matching Hero Image Height */}
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 items-stretch lg:h-[500px]">
+
+            {/* Left Column */}
+            <div className="flex flex-col gap-8 h-full">
+              {[achievementsData[0], achievementsData[1]].map((item, idx) => (
                 <motion.div
-                key={index}
-                variants={cardVariants}
-                whileHover={{ scale: 1.05 }}
-                className="w-full flex flex-col"
+                  key={item.id}
+                  initial={{ opacity: 0, x: -30 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.3 + idx * 0.2 }}
+                  className="group relative bg-[#F6F8F3] p-6 rounded-[2rem] shadow-sm hover:shadow-md transition-all flex flex-col items-start gap-3 flex-1 overflow-hidden"
                 >
-                  <Card
-                    className="p-6 bg-secondary/30 shadow-md rounded-lg h-64 flex flex-col justify-center items-center transform transition-all duration-300 hover:scale-105 relative overflow-hidden"
-                  >
-                    {/* Image carousel for first achievement */}
-                    {index === 1 && achievement1Images.length > 0 ? (
-                      <div className="relative w-full h-full rounded-lg overflow-hidden bg-gray-100">
-                        <AnimatePresence mode="wait">
-                          <motion.div
-                            key={currentImageIndex1}
-                            initial={{ opacity: 0, x: 50 }}
-                            animate={{ opacity: 1, x: 0 }}
-                            exit={{ opacity: 0, x: -50 }}
-                            transition={{ duration: 0.3 }}
-                            className="absolute inset-0"
-                          >
-                            <div className="relative w-full h-full flex items-center justify-center">
-                              <Image
-                                src={achievement1Images[currentImageIndex1]}
-                                alt={`Achievement 1 - Image ${currentImageIndex1 + 1}`}
-                                width={400}
-                                height={400}
-                                className="object-contain max-w-full max-h-full"
-                                onError={(e) => {
-                                  console.error('Image failed to load:', achievement1Images[currentImageIndex1])
-                                }}
-                              />
-                            </div>
-                          </motion.div>
-                        </AnimatePresence>
-                        
-                        {/* Navigation arrows */}
-                        {achievement1Images.length > 1 && (
-                          <>
-                            <button
-                              onClick={prevImage1}
-                              className="absolute left-2 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-2 rounded-full transition-all z-10"
-                              aria-label="Previous image"
-                            >
-                              <FaChevronLeft />
-                            </button>
-                            <button
-                              onClick={nextImage1}
-                              className="absolute right-2 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-2 rounded-full transition-all z-10"
-                              aria-label="Next image"
-                            >
-                              <FaChevronRight />
-                            </button>
-                            
-                            {/* Image indicators */}
-                            <div className="absolute bottom-2 left-1/2 -translate-x-1/2 flex gap-2 z-10">
-                              {achievement1Images.map((_, i) => (
-                                <button
-                                  key={i}
-                                  onClick={() => setCurrentImageIndex1(i)}
-                                  className={`w-2 h-2 rounded-full transition-all ${
-                                    i === currentImageIndex1 ? 'bg-white' : 'bg-white/50'
-                                  }`}
-                                  aria-label={`Go to image ${i + 1}`}
-                                />
-                              ))}
-                            </div>
-                          </>
-                        )}
-                      </div>
-                    ) : index === 2 && achievement2Images.length > 0 ? (
-                      /* Image carousel for second achievement */
-                      <div className="relative w-full h-full rounded-lg overflow-hidden bg-gray-100">
-                        <AnimatePresence mode="wait">
-                          <motion.div
-                            key={currentImageIndex2}
-                            initial={{ opacity: 0, x: 50 }}
-                            animate={{ opacity: 1, x: 0 }}
-                            exit={{ opacity: 0, x: -50 }}
-                            transition={{ duration: 0.3 }}
-                            className="absolute inset-0"
-                          >
-                            <div className="relative w-full h-full flex items-center justify-center">
-                              <Image
-                                src={achievement2Images[currentImageIndex2]}
-                                alt={`Achievement 2 - Image ${currentImageIndex2 + 1}`}
-                                width={400}
-                                height={400}
-                                className="object-contain max-w-full max-h-full"
-                                onError={(e) => {
-                                  console.error('Image failed to load:', achievement2Images[currentImageIndex2])
-                                }}
-                              />
-                            </div>
-                          </motion.div>
-                        </AnimatePresence>
-                        
-                        {/* Navigation arrows */}
-                        {achievement2Images.length > 1 && (
-                          <>
-                            <button
-                              onClick={prevImage2}
-                              className="absolute left-2 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-2 rounded-full transition-all z-10"
-                              aria-label="Previous image"
-                            >
-                              <FaChevronLeft />
-                            </button>
-                            <button
-                              onClick={nextImage2}
-                              className="absolute right-2 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-2 rounded-full transition-all z-10"
-                              aria-label="Next image"
-                            >
-                              <FaChevronRight />
-                            </button>
-                            
-                            {/* Image indicators */}
-                            <div className="absolute bottom-2 left-1/2 -translate-x-1/2 flex gap-2 z-10">
-                              {achievement2Images.map((_, i) => (
-                                <button
-                                  key={i}
-                                  onClick={() => setCurrentImageIndex2(i)}
-                                  className={`w-2 h-2 rounded-full transition-all ${
-                                    i === currentImageIndex2 ? 'bg-white' : 'bg-white/50'
-                                  }`}
-                                  aria-label={`Go to image ${i + 1}`}
-                                />
-                              ))}
-                            </div>
-                          </>
-                        )}
-                      </div>
-                    ) : (
-                      /* Empty container for other achievements */
-                      null
+                  <div className="w-10 h-10 rounded-full border border-gray-200 bg-white flex items-center justify-center mb-1 z-10 transition-opacity duration-300 group-hover:opacity-0">
+                    {item.icon}
+                  </div>
+                  <h3 className="text-xl font-bold text-[#1C2314] z-10 transition-opacity duration-300 group-hover:opacity-0">{item.title}</h3>
+                  <p className="text-gray-600 leading-relaxed text-sm lg:text-sm z-10 transition-opacity duration-300 group-hover:opacity-0">
+                    {item.description}
+                  </p>
+
+                  {/* Hover Image Overlay */}
+                  <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-20">
+                    {item.hoverImage && (
+                      <Image
+                        src={item.hoverImage}
+                        alt={item.title}
+                        fill
+                        className="object-cover"
+                      />
                     )}
-                  </Card>
-                  <motion.div
-                    className="mt-4 p-3 bg-secondary/20 rounded-md text-sm text-muted-foreground"
-                  >
-                    {index === 1 && (
-                      <>
-                        Developed <strong>Smart Hospital MAS</strong>, a multi-agent AI system for mood analysis, triage, scheduling, and bed allocation; improved hospital workflow efficiency. <strong>2nd Runner-Up</strong>.
-                      </>
-                    )}
-                    {index === 2 && (
-                      <>
-                        Completed the <strong>DeepLearning.AI Data Engineering Professional Certificate</strong> (in collaboration with AWS), covering data ingestion, storage, modeling, and pipeline orchestration—building scalable, cloud-based data solutions on AWS.
-                      </>
-                    )}
-                    {index === 3 && (
-                      <>
-                        Earned a <strong>5-Star SQL Badge on HackerRank</strong>, demonstrating advanced proficiency in writing optimized queries, joins, and analytical functions for real-world data challenges.
-                      </>
-                    )}
-                    {index === 4 && (
-                      <>
-                        Conducted research on <strong>AI and ML-based fraud detection</strong>, comparing techniques like SVM, ANN, and HMM to improve accuracy across financial and digital fraud domains.
-                      </>
-                    )}  
-                    {index === 5 && (
-                      <>
-                        Conducted research on <strong>deep learning–based object detection</strong>, comparing CNN architectures like R-CNN, Fast R-CNN, and YOLO to improve accuracy and speed in real-world applications such as healthcare, autonomous vehicles, and surveillance.
-                      </>
-                    )}
-                    {index === 6 && (
-                      <>
-                        Completed the <strong>Power BI Fundamentals</strong> course, gaining hands-on experience in <strong>data preparation, DAX, visualization design, and a customer churn case study</strong>, strengthening end-to-end business analytics skills.
-                      </>
-                    )}
-                  </motion.div>
+                    <a href={item.link} target="_blank" rel="noopener noreferrer" className="absolute inset-0 bg-black/40 flex items-center justify-center">
+                      <span className="text-white font-bold text-lg px-4 py-2 border-2 border-white rounded-full backdrop-blur-sm cursor-pointer hover:bg-white hover:text-black transition-colors">View Certificate</span>
+                    </a>
+                  </div>
                 </motion.div>
-            ))}
-          </motion.div>
+              ))}
+            </div>
+
+            {/* Center Column: Image */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.5 }}
+              className="relative w-full h-[350px] lg:h-full rounded-[2.5rem] overflow-hidden shadow-xl order-first lg:order-none"
+            >
+              <Image
+                src="/krishna_with_certificate.jpeg"
+                alt="Krishna Professional Achievement"
+                fill
+                className="object-cover"
+                sizes="(max-width: 1024px) 100vw, 33vw"
+              />
+            </motion.div>
+
+            {/* Right Column */}
+            <div className="flex flex-col gap-8 h-full">
+              {[achievementsData[2], achievementsData[3]].map((item, idx) => (
+                <motion.div
+                  key={item.id}
+                  initial={{ opacity: 0, x: 30 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.3 + idx * 0.2 }}
+                  className="group relative bg-[#F6F8F3] p-6 rounded-[2rem] shadow-sm hover:shadow-md transition-all flex flex-col items-start gap-3 flex-1 overflow-hidden"
+                >
+                  <div className="w-10 h-10 rounded-full border border-gray-200 bg-white flex items-center justify-center mb-1 z-10 transition-opacity duration-300 group-hover:opacity-0">
+                    {item.icon}
+                  </div>
+                  <h3 className="text-xl font-bold text-[#1C2314] z-10 transition-opacity duration-300 group-hover:opacity-0">{item.title}</h3>
+                  <p className="text-gray-600 leading-relaxed text-sm lg:text-sm z-10 transition-opacity duration-300 group-hover:opacity-0">
+                    {item.description}
+                  </p>
+
+                  {/* Hover Image Overlay */}
+                  <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-20">
+                    {item.hoverImage && (
+                      <Image
+                        src={item.hoverImage}
+                        alt={item.title}
+                        fill
+                        className="object-cover"
+                      />
+                    )}
+                    <a href={item.link} target="_blank" rel="noopener noreferrer" className="absolute inset-0 bg-black/40 flex items-center justify-center">
+                      <span className="text-white font-bold text-lg px-4 py-2 border-2 border-white rounded-full backdrop-blur-sm cursor-pointer hover:bg-white hover:text-black transition-colors">View Certificate</span>
+                    </a>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+
+          </div>
         </div>
       </motion.div>
     </section>

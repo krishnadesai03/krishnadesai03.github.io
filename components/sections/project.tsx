@@ -1,115 +1,133 @@
 "use client"
 
-import { useState } from "react"
-import { motion, AnimatePresence } from "framer-motion"
-import { FaChevronDown, FaBriefcase } from "react-icons/fa"
+import { ReactNode } from "react"
+import { motion } from "framer-motion"
+import { FaGithub } from "react-icons/fa"
+import Image from "next/image"
 
-type WorkExperience = {
+type Project = {
   id: number
-  role: string
-  company: string
-  duration: string
-  details: string[]
+  title: string
+  image: string
+  description: string | ReactNode
+  tags: string[]
+  links?: {
+    github?: string
+  }
 }
 
-const workExperienceData: WorkExperience[] = [
-    {
+const projects: Project[] = [
+  {
     id: 1,
-    role: "IMDB EMOANALYSIS: Understanding Movie Sentiment with Deep Learning",
-    company: "Python, LSTM, Bi-LSTM, Deep Learning, Sentiment Analysis",
-    duration: "May 2024",
-    details: [
-      "Developed sentiment analysis models using LSTM and Bi-LSTM, achieving an accuracy of 0.86 on the final model.",
-      "Analyzed a 50,000-record dataset, solving complex data challenges and implementing 5-6 crucial pre-processing steps.",
-      "Applied analytical thinking to derive insights into audience sentiment trends, validating the model on live data with 0.85 accuracy.",
-      "My model outperformed others by 7.5% in terms of accuracy and prediction quality."
-    ]
+    title: "SHMAS project",
+    image: "/shmas.png",
+    description: "AI-powered agents optimizing hospital workflows in real time.",
+    tags: ["AI", "Agents", "Real-time"],
+    links: { github: "https://github.com/krishnadesai03/AIvengers" }
   },
   {
     id: 2,
-    role: "Binary Image Classification for Waste Management",
-    company: "TensorFlow, Keras, CNN, GCP, Cloud Run, Data Augmentation",
-    duration: "2024",
-    details: [
-      "Developed a deep learning model to classify waste images into 2 categories namely recyclable and non-recyclable images.",
-      "Used a dataset of 1,800 training and 450 testing images, ensuring balanced category representation for effective model evaluation.",
-      "Implemented data preprocessing techniques, like image augmentation and normalization, to enhance model performance by 10%.",
-      "Designed and trained a CNN-based model using TensorFlow and Keras, achieving an accuracy of 72% on the test dataset.",
-      "Leveraged GCP for data storage, model training using AI Platform, and deployment through Cloud Run for real-time classification."
-    ]
+    title: "Global Superstore Analytics",
+    image: "/superstore.png",
+    description: "AWS-powered retail analytics platform with ML-driven insights.",
+    tags: ["AWS", "Machine Learning", "Analytics"],
+    links: { github: "https://github.com/krishnadesai03/Global_Superstore_Analytics" }
   },
   {
     id: 3,
-    role: "Global Superstore Analytics – AWS End-to-End Data Pipeline and Dashboard",
-    company: "AWS, S3, Glue Crawler, Redshift, Athena, Power BI, ETL",
-    duration: "2024",
-    details: [
-      "Designed and implemented a scalable data pipeline on AWS (S3, Glue Crawler + ETL, Redshift) to process Global Superstore data, improving overall data usability by ~10% and reducing ETL runtime by ~5% through schema optimization and structured transformations.",
-      "Queried and analyzed transformed datasets with Athena and built an interactive Power BI dashboard (10+ KPIs, sales trends, profitability insights), helping reduce manual reporting effort by ~15% and making insights more accessible to business stakeholders.",
-      "Configured IAM roles, resolved connectivity/authentication issues, and implemented CloudWatch monitoring, improving pipeline stability and reducing troubleshooting time by ~10%."
-    ]
+    title: "SOFI",
+    image: "/sofi.png",
+    description: (
+      <>
+        Contributed visual analytics to the SoFI project, earning an <a href="https://www.millennium-project.org/state-of-the-future-index/" target="_blank" rel="noopener noreferrer" className="text-[#9bab80] hover:underline font-semibold">Honorable Mention</a> for impactful insights.
+      </>
+    ),
+    tags: ["Power BI", "Data Analytics"],
+    links: { github: "https://app.powerbi.com/view?r=eyJrIjoiYzNkMTJiNzItOGZmZS00NmVkLThjMzMtZmM0ZjIzZmJmYjkzIiwidCI6IjExMTNiZTM0LWFlZDEtNGQwMC1hYjRiLWNkZDAyNTEwYmU5MSIsImMiOjN9" }
+  },
+  {
+    id: 4,
+    title: "Tweet Analytics using AWS",
+    image: "/twitter.png",
+    description: "Analyzing social media conversations to uncover trends and insights.",
+    tags: ["AWS", "Data Analysis", "Social Media"],
+    links: { github: "https://github.com/krishnadesai03/twitter-data-analytics" }
+  },
+  {
+    id: 5,
+    title: "Financial Risk Monitoring System",
+    image: "/banking_analytics.png",
+    description: "Data-driven dashboard uncovering banking risk and customer financial patterns.",
+    tags: ["Data Dashboard", "Risk Analytics"],
+    links: { github: "https://github.com/krishnadesai03/Banking_Risk_Analytics_Platform" }
+  },
+  {
+    id: 6,
+    title: "IMDB EmoAnalysis",
+    image: "/imdb.png",
+    description: "NLP model analyzing IMDb movie review sentiment with RNN architectures.",
+    tags: ["Python", "NLP", "RNN", "Deep Learning"],
+    links: { github: "https://github.com/krishnadesai03/IMDB_EmoAnalysis_using_Deep_Learning" }
   }
 ]
 
 export function ProjectSection() {
-  const [expanded, setExpanded] = useState<number | null>(null)
-
-  const toggleExpand = (id: number) => {
-    setExpanded(prev => (prev === id ? null : id))
-  }
-
   return (
-    <section id="project" className="bg-gray-100 py-16 px-6 sm:px-12">
-      <div className="max-w-4xl mx-auto">
-        <div className="text-center mb-12">
-          <h2 className="text-4xl font-bold text-gray-800 mb-2">Projects</h2>
-          <p className="text-gray-600 text-lg"></p>
+    <section id="projects" className="bg-white min-h-screen py-24 px-4 sm:px-6 lg:px-12 flex flex-col justify-center overflow-hidden">
+      <div className="max-w-7xl mx-auto w-full">
+        <div className="text-center mb-8">
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: false, amount: 0.2 }}
+            className="text-3xl md:text-3xl lg:text-4xl font-medium text-[#1C2314] mb-4 tracking-tight"
+          >
+            Featured Projects
+          </motion.h2>
+          <p className="text-gray-600 text-xl max-w-2xl mx-auto">
+            A glimpse into the work I’ve built.
+          </p>
         </div>
 
-        <div className="space-y-6">
-          {workExperienceData.map((exp) => (
-            <div
-              key={exp.id}
-              className="bg-white rounded-xl shadow-md p-6 transition hover:shadow-lg"
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-6 items-stretch">
+          {projects.map((project, index) => (
+            <motion.div
+              key={project.id}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: false, amount: 0.2 }}
+              transition={{ delay: index * 0.1, duration: 0.5 }}
+              className="bg-gray-50 border border-gray-200 p-4 shadow-sm hover:shadow-md hover:border-[#9bab80] transition-colors transition-shadow duration-300 flex flex-col justify-between group"
             >
-              <div
-                className="flex justify-between items-center cursor-pointer"
-                onClick={() => toggleExpand(exp.id)}
-              >
-                <div className="flex items-start gap-4">
-                  <FaBriefcase className="text-blue-600 mt-1" size={24} />
-                  <div>
-                    <h3 className="text-xl font-semibold text-gray-800">{exp.role}</h3>
-                    <p className="text-gray-600">{exp.company}</p>
-                    <p className="text-gray-500 text-sm mt-1">{exp.duration}</p>
-                  </div>
+              <div>
+                <div className="w-full relative h-[200px] md:h-[220px] mb-4 bg-gray-100 overflow-hidden">
+                  <Image
+                    src={project.image}
+                    alt={project.title}
+                    fill
+                    className="object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
                 </div>
-                <motion.div
-                  animate={{ rotate: expanded === exp.id ? 180 : 0 }}
-                  transition={{ duration: 0.3 }}
-                >
-                  <FaChevronDown className="text-gray-500" />
-                </motion.div>
+                <div className="flex justify-between items-start mb-2">
+                  <h3 className="text-xl font-bold text-[#1C2314] leading-tight">{project.title}</h3>
+                  {project.links?.github && (
+                    <a href={project.links.github} target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-[#1C2314] transition-colors shrink-0 ml-2 mt-1">
+                      <FaGithub size={22} />
+                    </a>
+                  )}
+                </div>
+                <div className="text-sm text-gray-600 mb-4 h-auto min-h-[40px] line-clamp-3">
+                  {project.description}
+                </div>
               </div>
-
-              <AnimatePresence>
-                {expanded === exp.id && (
-                  <motion.div
-                    initial={{ opacity: 0, height: 0 }}
-                    animate={{ opacity: 1, height: "auto" }}
-                    exit={{ opacity: 0, height: 0 }}
-                    transition={{ duration: 0.4 }}
-                    className="overflow-hidden mt-4"
-                  >
-                    <ul className="list-disc list-inside text-gray-700 space-y-1 pl-2">
-                      {exp.details.map((point, idx) => (
-                        <li key={idx}>{point}</li>
-                      ))}
-                    </ul>
-                  </motion.div>
-                )}
-              </AnimatePresence>
-            </div>
+              <div className="flex flex-wrap gap-2 mt-auto">
+                {project.tags.map(tag => (
+                  <span key={tag} className="px-2 py-1 bg-white border border-gray-200 text-[10px] md:text-xs font-semibold text-gray-500 uppercase tracking-wider">
+                    {tag}
+                  </span>
+                ))}
+              </div>
+            </motion.div>
           ))}
         </div>
       </div>

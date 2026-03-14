@@ -1,15 +1,12 @@
 import { HeroSection } from "@/components/sections/hero"
 import { AboutSection } from "@/components/sections/about"
-import { SkillSection } from "@/components/sections/skills"
-import { CertificateSection  } from "@/components/sections/certification" 
+import { FAQSection } from "@/components/sections/faq"
 // import { ExperienceSection } from "@/components/sections/experiences"
 import { ContactSection } from "@/components/sections/contact"
-import { BlogSection } from "@/components/sections/blog"
 import { ShortsSection } from "@/components/sections/shorts"
-import { EducationSection } from "@/components/sections/education"
 import { WorkExSection } from "@/components/sections/workex"
 import { ProjectSection } from "@/components/sections/project"
-
+import { EducationSkillsSection } from "@/components/sections/education-skills"
 
 
 export default function Home() {
@@ -17,14 +14,12 @@ export default function Home() {
     <div className="flex flex-col">
       <HeroSection />
       <AboutSection />
-      <WorkExSection/>
-      <BlogSection/>
-      <SkillSection />
-      <ProjectSection/>
-      <ShortsSection/>
-      <EducationSection/>
-      <CertificateSection/>
-      <ContactSection/>
+      <ProjectSection />
+      <WorkExSection />
+      <EducationSkillsSection />
+      <ShortsSection />
+      <FAQSection />
+      <ContactSection />
     </div>
   )
 }
