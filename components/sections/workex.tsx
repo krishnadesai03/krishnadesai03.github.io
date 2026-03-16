@@ -18,9 +18,10 @@ const workExperienceData: WorkExperience[] = [
     company: "Data Engineer @ Project 990",
     duration: "August 2025 – Present",
     details: [
-      "Optimized an Entity Name Matching model to match incoming records against a 13M+ ground-truth set, migrating from Pandas/XGBoost to Spark for scale.",
-      "Built entity-resolution features (Soundex, Double Metaphone, etc.) and used cosine similarity + SNI to generate high-quality candidate pairs.",
-      "Enhanced the core data-matching engine powering Project 990, significantly increasing match precision for grant seekers and grant givers and improving the reliability of downstream analytics and reporting."
+      "Optimized an Entity Name Matching model to match incoming records against a 13M+ ground-truth set, leveraging PandasEntityMatching (XGBoost-based) to improve large-scale record matching accuracy.",
+      "Engineered scalable entity resolution and candidate generation logic to efficiently identify high-quality record matches across large nonprofit datasets, improving processing efficiency and match precision.",
+      "Enhanced the core data-matching engine powering Project 990, significantly increasing match precision for grant seekers and grant givers and improving the reliability of downstream analytics and reporting.",
+      "Developing a prompt-driven, LLM-based few-shot classification pipeline to map nonprofit mission statements to UN Sustainable Development Goal (SDG) codes, using a model-independent approach to improve categorization."
     ]
   },
   {
