@@ -25,6 +25,16 @@ const workExperienceData: WorkExperience[] = [
   },
   {
     id: 2,
+    role: "Gen AI Engineer",
+    company: "Gen AI Engineer @ IUB",
+    duration: "January 2026 – Present",
+    details: [
+      "Participating in a generative AI research project on generating museum floorplan layouts from user-defined constraints, assisting with dataset organization, preparation, and research documentation while gaining exposure to structured AI research workflows.",
+      "Supporting training workflows for generative models that translate textual descriptions into spatial layouts while contributing to literature reviews, team discussions, and analysis of spatial constraints to understand model behavior and evaluation."
+    ]
+  },
+  {
+    id: 3,
     role: "Data Analyst",
     company: "Data Analyst @ Project 990",
     duration: "May 2025 – August 2025",
@@ -35,8 +45,8 @@ const workExperienceData: WorkExperience[] = [
     ]
   },
   {
-    id: 3,
-    role: "Data Science & Machine Learning Intern",
+    id: 4,
+    role: "Data Science Intern",
     company: "Data Science Intern @ TCR Innovation",
     duration: "January 2022 – April 2022",
     details: [
