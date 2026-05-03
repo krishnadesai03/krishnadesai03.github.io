@@ -18,17 +18,17 @@ const workExperienceData: WorkExperience[] = [
     company: "Data Engineer @ Project 990",
     duration: "August 2025 – Present",
     details: [
-      "Optimized an Entity Name Matching model to match incoming records against a 13M+ ground-truth set, leveraging PandasEntityMatching (XGBoost-based) to improve large-scale record matching accuracy.",
-      "Engineered scalable entity resolution and candidate generation logic to efficiently identify high-quality record matches across large nonprofit datasets, improving processing efficiency and match precision.",
-      "Enhanced the core data-matching engine powering Project 990, significantly increasing match precision for grant seekers and grant givers and improving the reliability of downstream analytics and reporting.",
-      "Developing a prompt-driven, LLM-based few-shot classification pipeline to map nonprofit mission statements to UN Sustainable Development Goal (SDG) codes, using a model-independent approach to improve categorization."
+      "Architected and accelerated an Entity Name Matching model to match incoming records against a 13M+ ground truth dataset, leveraging PandasEntityMatching (XGBoost-based) to reduce processing time by 42%.",
+      "Engineered scalable entity resolution and candidate generation logic to efficiently identify high-quality record matches across large nonprofit datasets, reducing candidate search space by 50%.",
+      "Enhanced the core data-matching engine powering Project 990, improving match precision by 15% for grant seekers and grant givers.",
+      "Developing a prompt-driven, LLM-based few-shot classification pipeline to map nonprofit mission statements to UN Sustainable Development Goal (SDG) codes, using a model-independent approach to improve categorization and analytics."
     ]
   },
   {
     id: 2,
     role: "Gen AI Engineer",
     company: "Gen AI Engineer @ IUB",
-    duration: "January 2026 – Present",
+    duration: "January 2026 – May 2026",
     details: [
       "Participating in a generative AI research project on generating museum floorplan layouts from user-defined constraints, assisting with dataset organization, preparation, and research documentation while gaining exposure to structured AI research workflows.",
       "Supporting training workflows for generative models that translate textual descriptions into spatial layouts while contributing to literature reviews, team discussions, and analysis of spatial constraints to understand model behavior and evaluation."
@@ -40,9 +40,9 @@ const workExperienceData: WorkExperience[] = [
     company: "Data Analyst @ Project 990",
     duration: "May 2025 – August 2025",
     details: [
-      "Refactored a large-scale extraction pipeline for 2M+ nonprofit records, building a scalable Python-based migration framework to convert unstructured IRS Form 990 filings into structured, queryable datasets.",
-      "Discovered and resolved thousands of critical duplicate records during pipeline refactoring, escalating the issue to leadership and implementing robust deduplication logic that improved data integrity and downstream model accuracy.",
-      "Built the “U.S. Education Philanthropy Desert” from scratch by preprocessing millions of records, performing advanced EDA, and developing layered geospatial visualizations in Tableau with dynamic filters and drill-down capabilities."
+      "Refactored a large-scale extraction pipeline for 2M+ nonprofit records, building a scalable Python-based migration framework to convert unstructured IRS Form 990 filings into structured datasets, improving pipeline efficiency by 20%.",
+      "Discovered and resolved thousands of critical duplicate records during pipeline refactoring, implementing robust deduplication logic that reduced duplicate records by 10%.",
+      "Designed the “U.S. Education Philanthropy Desert” from scratch by preprocessing 3.6M records and developing layered geospatial visualizations in Tableau, enabling interactive analysis across 3,000+ U.S. counties."
     ]
   },
   {
@@ -51,9 +51,9 @@ const workExperienceData: WorkExperience[] = [
     company: "Data Science Intern @ TCR Innovation",
     duration: "January 2022 – April 2022",
     details: [
-      "Developed ETL pipelines with Airflow and PostgreSQL, enabling scalable ingestion and transformation of 300K+ employee records.",
-      "Engineered feature pipelines and trained PySpark models, achieving 85% accuracy with optimized data flow and performance.",
-      "Deployed dashboards and monitoring tools using Docker and Power BI, ensuring real-time insights and reliable HR data operations."
+      "Orchestrated ETL pipelines with Airflow and PostgreSQL, enabling scalable ingestion and transformation of 300K+ employee records.",
+      "Engineered feature pipelines and trained PySpark models for attrition prediction, achieving 85% accuracy with enhanced data flow.",
+      "Deployed Power BI dashboards and monitoring tools, cutting reporting latency by 30% and enabling real-time HR insights."
     ]
   }
 ]
