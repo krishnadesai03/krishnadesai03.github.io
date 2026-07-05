@@ -14,14 +14,14 @@ type WorkExperience = {
 const workExperienceData: WorkExperience[] = [
   {
     id: 1,
-    role: "Data Engineer",
-    company: "Data Engineer @ Project 990",
+    role: "AI & Data Engineer",
+    company: "AI & Data Engineer @ Project 990",
     duration: "August 2025 – Present",
     details: [
-      "Architected and accelerated an Entity Name Matching model to match incoming records against a 13M+ ground truth dataset, leveraging PandasEntityMatching (XGBoost-based) to reduce processing time by 42%.",
-      "Engineered scalable entity resolution and candidate generation logic to efficiently identify high-quality record matches across large nonprofit datasets, reducing candidate search space by 50%.",
-      "Enhanced the core data-matching engine powering Project 990, improving match precision by 15% for grant seekers and grant givers.",
-      "Developing a prompt-driven, LLM-based few-shot classification pipeline to map nonprofit mission statements to UN Sustainable Development Goal (SDG) codes, using a model-independent approach to improve categorization and analytics."
+      "Architected an XGBoost-based entity matching system for a 13M+ record dataset, reducing processing time by 42% and candidate search space by 50% through scalable entity resolution and candidate generation",
+      "Built a RoBERTa NLP pipeline for 175K+ nonprofit records, improving tagging consistency by 30% through GPU-accelerated inference.",
+      "Built a hybrid retrieval framework combining BM25 and FAISS vector search, enhancing answer relevance and attaining an MRR of 0.919 to improve nonprofit search and discovery.",
+      "Developed an LLM-based classification pipeline using few-shot learning and rule-based prompt engineering to map 60K+ nonprofit mission statements to 17 UN SDGs, leveraging transformer-based topic extraction and relevance scoring to improve categorization."
     ]
   },
   {
@@ -30,8 +30,9 @@ const workExperienceData: WorkExperience[] = [
     company: "Gen AI Engineer @ IUB",
     duration: "January 2026 – May 2026",
     details: [
-      "Participating in a generative AI research project on generating museum floorplan layouts from user-defined constraints, assisting with dataset organization, preparation, and research documentation while gaining exposure to structured AI research workflows.",
-      "Supporting training workflows for generative models that translate textual descriptions into spatial layouts while contributing to literature reviews, team discussions, and analysis of spatial constraints to understand model behavior and evaluation."
+      "Built a Pix2Pix-based generative AI system to create museum-style architectural floorplans from spatial room-block constraints, using PyTorch, OpenCV, OCR, and conditional image-to-image translation.",
+      "Designed a 5-channel conditioning pipeline combining RGB overlays, room polygon masks, and centroid heatmaps, improving the model’s ability to learn wall geometry, room boundaries, corridors, and interior partitions.",
+      "Optimized a 7-level U-Net generator and spectral-normalized PatchGAN discriminator with hinge GAN loss, L1 reconstruction loss, InstanceNorm, gradient clipping, and CPU-based training across 300 epochs on 1000 floorplan pairs."
     ]
   },
   {
