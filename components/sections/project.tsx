@@ -19,6 +19,14 @@ type Project = {
 const projects: Project[] = [
   {
     id: 1,
+    title: "NexusAI",
+    image: "/nexusai.svg",
+    description: "Multi-agent enterprise assistant that routes employee questions to specialized agents for company knowledge and performance data.",
+    tags: ["AI", "Multi-Agent", "RAG", "FastAPI", "Next.js"],
+    links: { github: "https://github.com/krishnadesai03/NexusAI" }
+  },
+  {
+    id: 2,
     title: "MedQueryAI",
     image: "/medqueryai.png",
     description: "A RAG-powered AI assistant that answers clinical questions with cited medical sources.",
@@ -26,7 +34,7 @@ const projects: Project[] = [
     links: { github: "https://github.com/krishnadesai03/MedQueryAI" }
   },
   {
-    id: 2,
+    id: 3,
     title: "Splitmind",
     image: "/splitmind.png",
     description: "Multi-agent pipeline that turns any receipt into exact, fair settlements.",
@@ -34,7 +42,7 @@ const projects: Project[] = [
     links: { github: "https://github.com/krishnadesai03/Splitmind" }
   },
   {
-    id: 3,
+    id: 4,
     title: "SHMAS project",
     image: "/shmas.png",
     description: "AI-powered agents optimizing hospital workflows in real time.",
@@ -42,7 +50,7 @@ const projects: Project[] = [
     links: { github: "https://github.com/krishnadesai03/AIvengers" }
   },
   {
-    id: 4,
+    id: 5,
     title: "Global Superstore Analytics",
     image: "/superstore.png",
     description: "AWS-powered retail analytics platform with ML-driven insights.",
@@ -50,7 +58,7 @@ const projects: Project[] = [
     links: { github: "https://github.com/krishnadesai03/Global_Superstore_Analytics" }
   },
   {
-    id: 5,
+    id: 6,
     title: "SOFI",
     image: "/sofi.png",
     description: (
@@ -62,7 +70,7 @@ const projects: Project[] = [
     links: { github: "https://app.powerbi.com/view?r=eyJrIjoiYzNkMTJiNzItOGZmZS00NmVkLThjMzMtZmM0ZjIzZmJmYjkzIiwidCI6IjExMTNiZTM0LWFlZDEtNGQwMC1hYjRiLWNkZDAyNTEwYmU5MSIsImMiOjN9" }
   },
   {
-    id: 6,
+    id: 7,
     title: "IMDB EmoAnalysis",
     image: "/imdb.png",
     description: "NLP model analyzing IMDb movie review sentiment with RNN architectures.",
@@ -70,7 +78,7 @@ const projects: Project[] = [
     links: { github: "https://github.com/krishnadesai03/IMDB_EmoAnalysis_using_Deep_Learning" }
   },
   {
-    id: 7,
+    id: 8,
     title: "Tweet Analytics using AWS",
     image: "/twitter.png",
     description: "Analyzing social media conversations to uncover trends and insights.",
@@ -78,7 +86,7 @@ const projects: Project[] = [
     links: { github: "https://github.com/krishnadesai03/twitter-data-analytics" }
   },
   {
-    id: 8,
+    id: 9,
     title: "Financial Risk Monitoring System",
     image: "/banking_analytics.png",
     description: "Data-driven dashboard uncovering banking risk and customer financial patterns.",
