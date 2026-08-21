@@ -74,10 +74,14 @@ export function AboutSection() {
 
 
               <p className="text-3xl md:text-5xl text-[#1C2314] font-medium leading-tight font-sans tracking-tight">
-                Passionate about leveraging data <br />
+                From data pipelines to multi-agent AI.<br />
+                I build systems<br /> 
+                that don't just analyze, <br />
+                they decide.<br />
+                {/* Passionate about leveraging data <br />
                 science and engineering <br />
                 to solve real-world problems and <br />
-                drive innovation.
+                drive innovation. */}
               </p>
 
               {/* Icon / Feature Items: Adjusted size */}

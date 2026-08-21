@@ -63,7 +63,8 @@ export function HeroSection() {
               transition={{ delay: 0.4, duration: 0.6 }}
               className="text-4xl sm:text-5xl lg:text-6xl font-semibold text-white leading-tight tracking-tight mb-10"
             >
-              Turning Data Into Insights and Intelligent Systems
+              Architecting AI Agents That Reason Over Real-World Data
+              {/* Turning Data Into Insights and Intelligent Systems */}
             </motion.h1>
 
             <motion.div
