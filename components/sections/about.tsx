@@ -74,7 +74,7 @@ export function AboutSection() {
 
 
               <p className="text-3xl md:text-5xl text-[#1C2314] font-medium leading-tight font-sans tracking-tight">
-                From data pipelines to multi-agent AI.<br />
+                From data pipelines to agentic AI.<br />
                 I build systems<br /> 
                 that don't just analyze, <br />
                 they decide.<br />
