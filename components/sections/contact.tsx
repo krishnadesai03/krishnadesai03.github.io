@@ -21,7 +21,7 @@ export function ContactSection() {
     setIsSubmitting(true)
 
     try {
-      const response = await fetch('https://formspree.io/f/YOUR_FORM_ID', {
+      const response = await fetch('https://formspree.io/f/mqpznden', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -79,11 +79,15 @@ export function ContactSection() {
             </p>
 
             {/* Form */}
-            <form className="flex flex-col gap-3" onSubmit={(e) => e.preventDefault()}>
+            <form className="flex flex-col gap-3" onSubmit={handleSubmit}>
               <div>
                 <input
                   type="text"
+                  name="name"
                   placeholder="Your Name"
+                  value={formData.name}
+                  onChange={handleChange}
+                  required
                   className="w-full border-b border-gray-300 py-3 text-gray-700 focus:outline-none focus:border-[#1C2314] transition-colors bg-transparent placeholder:text-gray-400"
                 />
               </div>
@@ -91,7 +95,11 @@ export function ContactSection() {
               <div>
                 <input
                   type="email"
+                  name="email"
                   placeholder="Your Email"
+                  value={formData.email}
+                  onChange={handleChange}
+                  required
                   className="w-full border-b border-gray-300 py-3 text-gray-700 focus:outline-none focus:border-[#1C2314] transition-colors bg-transparent placeholder:text-gray-400"
                 />
               </div>
@@ -99,24 +107,33 @@ export function ContactSection() {
               <div>
                 <input
                   type="text"
+                  name="subject"
                   placeholder="Subject"
+                  value={formData.subject}
+                  onChange={handleChange}
+                  required
                   className="w-full border-b border-gray-300 py-3 text-gray-700 focus:outline-none focus:border-[#1C2314] transition-colors bg-transparent placeholder:text-gray-400"
                 />
               </div>
 
               <div>
                 <textarea
+                  name="message"
                   placeholder="Your Message"
                   rows={3}
+                  value={formData.message}
+                  onChange={handleChange}
+                  required
                   className="w-full border-b border-gray-300 py-3 text-gray-700 focus:outline-none focus:border-[#1C2314] transition-colors bg-transparent placeholder:text-gray-400 resize-none"
                 />
               </div>
 
               <button
                 type="submit"
-                className="mt-4 w-full bg-[#1C2314] text-white py-4 rounded-full font-medium text-lg hover:bg-black transition-colors"
+                disabled={isSubmitting}
+                className="mt-4 w-full bg-[#1C2314] text-white py-4 rounded-full font-medium text-lg hover:bg-black transition-colors disabled:opacity-60 disabled:cursor-not-allowed"
               >
-                Send Message
+                {isSubmitting ? "Sending..." : "Send Message"}
               </button>
             </form>
           </motion.div>
@@ -143,9 +160,9 @@ export function ContactSection() {
       {/* Footer Area */}
       <footer className="w-full bg-[#1C2314] text-white py-6 px-6 sm:px-12 flex flex-col items-center justify-center gap-4">
         <div className="flex flex-wrap justify-center gap-8 md:gap-12 mb-1">
-          <a href="mailto:desaikri@iu.edu" className="flex items-center gap-2 hover:text-[#d5dec5] transition-colors group">
+          <a href="mailto:krishna.mdesai03@gmail.com" className="flex items-center gap-2 hover:text-[#d5dec5] transition-colors group">
             <FaEnvelope className="text-xl group-hover:scale-110 transition-transform" />
-            <span className="text-sm font-medium">desaikri@iu.edu</span>
+            <span className="text-sm font-medium">krishna.mdesai03@gmail.com</span>
           </a>
           <div className="flex items-center gap-2 text-white group cursor-default">
             <FaPhoneAlt className="text-xl" />

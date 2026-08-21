@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion"
 import { Button } from "@/components/ui/button"
-import { ChevronDown, Download } from "lucide-react"
+import { ChevronDown, Download, MapPin } from "lucide-react"
 
 export function HeroSection() {
   return (
@@ -34,7 +34,7 @@ export function HeroSection() {
               transition={{ delay: 0.2, duration: 0.6 }}
               className="flex flex-wrap gap-3 mb-6 justify-start lg:justify-end"
             >
-              {["Data", "AI", "Cloud"].map((tag) => (
+              {["Data", "GenAI", "LLMs", "Agents"].map((tag) => (
                 <span
                   key={tag}
                   className="bg-white/20 backdrop-blur-md text-white px-5 py-2 rounded-full text-sm font-medium border border-white/20 shadow-sm"
@@ -42,6 +42,18 @@ export function HeroSection() {
                   {tag}
                 </span>
               ))}
+
+              <span className="flex items-center gap-1.5 bg-white/20 backdrop-blur-md text-white px-5 py-2 rounded-full text-sm font-medium border border-white/20 shadow-sm">
+                <span className="relative flex items-center justify-center h-5 w-5">
+                  <motion.span
+                    className="absolute h-5 w-5 rounded-full bg-emerald-400/70"
+                    animate={{ scale: [1, 2.4, 1], opacity: [0.6, 0, 0.6] }}
+                    transition={{ duration: 2, repeat: Infinity, ease: "easeOut" }}
+                  />
+                  <MapPin className="relative h-5 w-5 text-emerald-400" />
+                </span>
+                San Jose, CA
+              </span>
             </motion.div>
 
             <motion.h1
