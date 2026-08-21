@@ -35,28 +35,28 @@ const educationData: Education[] = [
 
 const skillsData = [
   {
-    category: "Languages",
-    items: ["Python", "C++", "R", "SQL"]
-  },
-  {
-    category: "Visualization",
-    items: ["Power BI", "Tableau", "Streamlit", "Matplotlib", "Seaborn", "Plotly"]
+    category: "Languages & Visualization",
+    items: ["Python", "C++", "R", "SQL", "Power BI", "Tableau", "Streamlit", "Matplotlib", "Seaborn", "Plotly"]
   },
   {
     category: "Machine Learning & AI",
     items: ["Scikit-learn", "XGBoost", "TensorFlow", "PyTorch", "Keras", "HuggingFace Transformers", "SHAP", "GANs", "LSTM", "NLP"]
   },
   {
+    category: "Generative AI & Agents",
+    items: ["LangChain", "LangGraph", "RAG", "Vector Search (FAISS, ChromaDB, pgvector)", "Prompt Engineering", "Multi-Agent Systems", "OpenAI API", "FastAPI"]
+  },
+  {
     category: "Data Engineering & Big Data",
-    items: ["Apache Airflow", "Spark (PySpark)", "Kafka", "dbt", "ETL/ELT Pipelines", "Data Modeling", "Feature Engineering", "Entity Resolution"]
+    items: ["Apache Airflow", "Spark (PySpark)", "Kafka", "ETL/ELT Pipelines", "Feature Engineering"]
   },
   {
     category: "Cloud & Databases",
-    items: ["AWS (S3, EC2, Glue, Redshift, Athena, SageMaker, Lambda)", "GCP", "Azure", "MySQL", "PostgreSQL", "Snowflake", "MongoDB", "Neo4j"]
+    items: ["AWS (S3, EC2, Glue, Redshift, Athena, SageMaker, Lambda)", "MySQL", "PostgreSQL", "Snowflake", "MongoDB"]
   },
   {
     category: "MLOps & Tools",
-    items: ["Docker", "FastAPI", "MLflow", "Git", "GitHub", "Terraform", "CI/CD"]
+    items: ["Docker", "Git", "GitHub", "CI/CD"]
   }
 ]
 
